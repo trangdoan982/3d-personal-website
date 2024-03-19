@@ -9,8 +9,6 @@ import Mars from '@/components/Mars'
 import { ChakraProvider } from '@chakra-ui/react'
 import NavBar from '@/components/NavBar'
 
-
-
 export default function App () {
   return (
     <ChakraProvider>

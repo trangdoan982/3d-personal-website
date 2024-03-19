@@ -8,12 +8,12 @@ interface ProjectHeaderProps {
     year: string
 }
 const ProjectHeader = (props: ProjectHeaderProps) => {
-    return(<div className='flex flex-col'>
-        <div className="bg-orange-300 h-3/4 w-full">
-            <img src={props.heroImage} /> 
+    return(<div className='flex flex-col m-5'>
+        <div className="bg-orange-300 w-full rounded-lg content-center">
+            <img src={props.heroImage} className='rounded-lg h-1/2' /> 
         </div>
         <div className='flex flex-col md:flex-row w-full bg-zinc-700 p-2'>
-            <div className='bg-red-400 m-2 w-1/2'>
+            <div className='bg-red-400 m-2 w-1/2 text-xl'>
                 <div className='bg-green-100'>
                     {props.title}
                 </div>
