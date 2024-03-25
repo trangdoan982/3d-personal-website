@@ -1,19 +1,38 @@
 import css from "@/styles/Home.module.css"
 import React from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars, Text, Plane } from '@react-three/drei'
+import { OrbitControls, Stars, Text, Plane, PerspectiveCamera} from '@react-three/drei'
 import Earth from '@/components/Earth'
 import Sun from '@/components/Sun'
 import Mercury from '@/components/Mercury'
 import Mars from '@/components/Mars'
 import { ChakraProvider } from '@chakra-ui/react'
 import NavBar from '@/components/NavBar'
+import { useRef } from "react"
 
 export default function App () {
+  // const cameraRef = useRef(); // Ref to access the camera
+
+  // /// Function to handle camera movement to position 1
+  // const handlePosition1 = () => {
+  //   if (cameraRef.current) {
+  //     cameraRef.current.position.set(0, 0, 10); // Set camera position to desired position 1
+  //   }
+  // };
+
+  // // Function to handle camera movement to position 2
+  // const handlePosition2 = () => {
+  //   if (cameraRef.current) {
+  //     cameraRef.current.position.set(5, 5, 5); // Set camera position to desired position 2
+  //   }
+  // };
+
   return (
     <ChakraProvider>
       <NavBar />
       <div className={css.scene}>
+        <div style={{color: "white"}}>Hi there </div>
+
         <Canvas
           camera={{position : [0,0,600]}}>
           <OrbitControls zoomSpeed={0.1}/>

@@ -3,7 +3,7 @@ import { Text, RoundedBox } from "@react-three/drei";
 
 const Mercury = () => {
     return <> <Planet 
-            position={[0, 0, -10]} 
+            position={[0, 0, 20]} 
             meshMaterialPath='/mercury.jpeg'
             spinSpeed={0.005}
             route="/connect"
