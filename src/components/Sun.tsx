@@ -1,19 +1,29 @@
 import Planet from "./Planet";
-import { Text, useFont } from "@react-three/drei";
+import { Text, Image } from "@react-three/drei";
 
 const Sun = () => {
-    // const font = useFont('Times New Roman')
-    return <>
-        <Planet 
-                position={[0, 0, 250]} 
-                meshMaterialPath='/sun.jpeg'
-                spinSpeed={0.005}
-                size={5}
-        />
-        <Text color={'white'} position={[-10,0,250]} font="/spaceFont.ttf" maxWidth={5} textAlign="right"> 
-            This is the Sun, where the general introduction goes 
-        </Text>
-    </>
-}
+	// const font = useFont('Times New Roman')
+	return (
+		<>
+			<Planet
+				position={[40, 0, 250]}
+				meshMaterialPath="/sun.jpeg"
+				spinSpeed={0.005}
+				size={50}
+			/>
+			<Text
+				color={"white"}
+				position={[-70, 0, 250]}
+				font="/spaceFont.ttf"
+				maxWidth={120}
+				fontSize={10}
+				textAlign="left"
+			>
+				Hi I’m Trang. Welcome to my space. Software Engineer and xyz
+				lorem ipsum
+			</Text>
+		</>
+	);
+};
 
 export default Sun;
