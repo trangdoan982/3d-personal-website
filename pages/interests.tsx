@@ -1,10 +1,5 @@
-import NavBar from "@/components/NavBar"
-
 const Interests = () => {
-    return(<div>
-        <NavBar />
-        Interests whatever
-    </div>)
-}
+	return <div>Interests whatever</div>;
+};
 
-export default Interests
+export default Interests;
