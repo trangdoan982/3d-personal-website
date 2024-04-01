@@ -21,11 +21,11 @@ const Earth = () => {
 				This is the Earth, where I list out things that ground me (aka
 				my interests)
 			</Text>
-			<Button3D
+			{/* <Button3D
 				text="Click me"
 				route="/interests"
 				position={[-10, -5, 50]}
-			/>
+			/> */}
 		</>
 	);
 };

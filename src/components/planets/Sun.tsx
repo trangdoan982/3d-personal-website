@@ -14,13 +14,30 @@ const Sun = () => {
 			<Text
 				color={"white"}
 				position={[-70, 0, 250]}
-				font="/spaceFont.ttf"
+				// font="/spaceFont.ttf"
 				maxWidth={120}
 				fontSize={10}
 				textAlign="left"
 			>
-				Hi I’m Trang. Welcome to my space. Software Engineer and xyz
-				lorem ipsum
+				Welcome to my space. This is Trang, an interdisciplinary
+				software engineer. I code, tell stories, move my body, and build
+				communities
+			</Text>
+			<Text
+				color={"white"}
+				position={[-110, -50, 250]}
+				fontSize={6}
+				textAlign="left"
+			>
+				Scroll to explore
+			</Text>
+			<Text
+				color={"white"}
+				position={[-110, -60, 250]}
+				fontSize={6}
+				textAlign="left"
+			>
+				Drag for fun
 			</Text>
 		</>
 	);

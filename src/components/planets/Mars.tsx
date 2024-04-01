@@ -8,18 +8,6 @@ interface MarsProps {
 	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
 }
 const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
-	const [showOverlay, setShowOverlay] = useState(false);
-
-	const close = () => {
-		setShowOverlay(!showOverlay);
-		setControlsEnabled(true);
-	};
-
-	const open = () => {
-		setShowOverlay(!showOverlay);
-		setControlsEnabled(false);
-	};
-
 	return (
 		<>
 			<Planet
@@ -34,12 +22,30 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				font="/spaceFont.ttf"
 				maxWidth={5}
 				textAlign="right"
-				onClick={open}
 			>
 				This is the Mars, where I flex about my projects
 			</Text>
-			<Card position={[5, 0, 150]} text="brex" />
-			{showOverlay && <Projects onClose={close} />}
+			<Card
+				position={[7, 5, 150]}
+				text="Brex"
+				size={[6, 3]}
+				setControlsEnabled={setControlsEnabled}
+				ProjectComponent={Projects}
+			/>
+			<Card
+				position={[7, 0, 150]}
+				text="Wikicredibility"
+				size={[6, 3]}
+				setControlsEnabled={setControlsEnabled}
+				ProjectComponent={Projects}
+			/>
+			<Card
+				position={[7, -5, 150]}
+				text="This website"
+				size={[6, 3]}
+				setControlsEnabled={setControlsEnabled}
+				ProjectComponent={Projects}
+			/>
 		</>
 	);
 };

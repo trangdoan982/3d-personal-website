@@ -23,7 +23,7 @@ const SectionCard = ({ bg, text, imagePath }: SectionCardProps) => {
 		</Box>
 	);
 };
-interface OverlayPageProps {
+export interface OverlayPageProps {
 	onClose: () => void;
 }
 const Projects: React.FC<OverlayPageProps> = ({ onClose }) => {
