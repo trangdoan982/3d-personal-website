@@ -1,5 +1,5 @@
 import Planet from "./Planet";
-import { Text, Image } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 
 const Sun = () => {
 	// const font = useFont('Times New Roman')

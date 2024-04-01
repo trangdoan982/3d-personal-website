@@ -9,12 +9,11 @@ import {
 	SetStateAction,
 } from "react";
 import * as THREE from "three";
-import Projects, { OverlayPageProps } from "./Projects";
 
 interface CardProps {
 	position: Vector3;
 	text: string;
-	ProjectComponent?: React.ComponentType<OverlayPageProps>;
+	ProjectComponent?: React.ComponentType<any>;
 	size?: [
 		width?: number | undefined,
 		height?: number | undefined,
@@ -110,7 +109,7 @@ const Card: React.FC<CardProps> = ({
 			</RoundedBox>
 			<Text
 				position={textPosition}
-				fontSize={0.5}
+				fontSize={1}
 				color={"black"}
 				ref={textRef}
 				// font="/spaceFont.ttf"

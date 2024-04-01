@@ -3,6 +3,9 @@ import { Text } from "@react-three/drei";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import Projects from "../Projects";
 import Card from "../Card";
+import Brex from "../Projects/Brex";
+import PersonalWebsite from "../Projects/PersonalWebsite";
+import Wikicredibility from "../Projects/Wikicredibility";
 
 interface MarsProps {
 	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
@@ -11,14 +14,14 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 	return (
 		<>
 			<Planet
-				position={[0, 0, 150]}
+				position={[5, 0, 150]}
 				meshMaterialPath="/mars.jpeg"
 				spinSpeed={0.002}
-				size={2}
+				size={10}
 			/>
 			<Text
 				color={"white"}
-				position={[-5, 0, 150]}
+				position={[-10, 0, 150]}
 				font="/spaceFont.ttf"
 				maxWidth={5}
 				textAlign="right"
@@ -26,25 +29,25 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				This is the Mars, where I flex about my projects
 			</Text>
 			<Card
-				position={[7, 5, 150]}
+				position={[25, 8, 150]}
 				text="Brex"
-				size={[6, 3]}
+				size={[10, 6]}
 				setControlsEnabled={setControlsEnabled}
-				ProjectComponent={Projects}
+				ProjectComponent={Brex}
 			/>
 			<Card
-				position={[7, 0, 150]}
+				position={[25, 0, 150]}
 				text="Wikicredibility"
-				size={[6, 3]}
+				size={[10, 6]}
 				setControlsEnabled={setControlsEnabled}
-				ProjectComponent={Projects}
+				ProjectComponent={Wikicredibility}
 			/>
 			<Card
-				position={[7, -5, 150]}
+				position={[25, -8, 150]}
 				text="This website"
-				size={[6, 3]}
+				size={[10, 6]}
 				setControlsEnabled={setControlsEnabled}
-				ProjectComponent={Projects}
+				ProjectComponent={PersonalWebsite}
 			/>
 		</>
 	);

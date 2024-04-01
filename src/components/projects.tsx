@@ -3,34 +3,32 @@ import React, { useEffect, useRef } from "react";
 import { Html } from "@react-three/drei";
 import { motion } from "framer-motion";
 
-interface SectionCardProps {
-	bg: string;
-	text: string;
-	imagePath: string;
-}
-const SectionCard = ({ bg, text, imagePath }: SectionCardProps) => {
-	return (
-		<Box
-			bg={bg}
-			width="50%"
-			height="350px"
-			display="flex"
-			justifyContent={"center"}
-			alignItems={"center"}
-			fontSize={40}
-		>
-			{text}
-		</Box>
-	);
-};
 export interface OverlayPageProps {
 	onClose: () => void;
+	imagePath: string;
+	projectTitle: string;
+	time: string;
+	link: string;
+	role: string;
+	stack: string;
+	content: string;
+	OtherContent?: React.ComponentType<any>;
 }
-const Projects: React.FC<OverlayPageProps> = ({ onClose }) => {
+
+const Projects: React.FC<OverlayPageProps> = ({
+	onClose,
+	imagePath,
+	projectTitle,
+	time,
+	link,
+	role,
+	stack,
+	content,
+	OtherContent,
+}) => {
 	return (
 		<Html
 			style={{
-				backgroundColor: "whitesmoke",
 				width: "100vw",
 				height: "95vh",
 				top: "-50vh",
@@ -40,63 +38,54 @@ const Projects: React.FC<OverlayPageProps> = ({ onClose }) => {
 				borderRadius: "20px",
 				margin: "10px",
 				padding: "10px",
+				backgroundImage: 'url("/starry_background.png")',
 			}}
 		>
+			<CloseButton color="white" onClick={onClose} />
 			<motion.div
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5, ease: "easeIn" }}
 			>
-				<CloseButton onClick={onClose} />
-				<Box
-					width="100%"
-					display="flex"
-					alignItems="center"
-					justifyContent="center"
-				>
+				<Box width="100%" display={"flex"}>
 					<Image
-						boxSize="80%"
+						boxSize="100%"
 						borderRadius="20"
-						margin={20}
-						src="/heroMainProject.png"
+						margin={40}
+						src={imagePath}
 					/>
 				</Box>
-				<Box
-					fontWeight={200}
-					backgroundColor={"greenyellow"}
-					width="100%"
-					padding={20}
-					paddingLeft={20}
-				>
-					<Text>
-						Some people call this Jack-of-all-trade. I call this a
-						Renaissance woman in the making.{" "}
-					</Text>
-					<Text>
-						{" "}
-						Having interested in many things, I yada yada yada{" "}
-					</Text>
-					<Text>
-						{" "}
-						But here are some of them projects. check it out{" "}
-					</Text>
-				</Box>
-				<Flex flexDirection="row" flexWrap={"wrap"} p="10">
-					<SectionCard
-						bg="seagreen"
-						text="Coding"
-						imagePath="/test"
-					/>
-					<Spacer />
-					<SectionCard
-						bg="lavender"
-						text="Writing"
-						imagePath="/test"
-					/>
-					<SectionCard bg="yellow" text="Visuals" imagePath="/test" />
-					<Spacer />
-					<SectionCard bg="peachpuff" text="???" imagePath="/test" />
+				<Flex direction={"row"} padding={40} alignItems={"baseline"}>
+					<Box
+						color={"white"}
+						fontFamily={"var(--font-inter)"}
+						flex={1}
+					>
+						<Box fontSize={40}> {projectTitle} </Box>
+						<Box fontSize={20}> {time} </Box>
+						<Box fontSize={20}>
+							{" "}
+							<a href={link}> Link </a>
+						</Box>
+					</Box>
+					<Box
+						color={"white"}
+						fontFamily={"var(--font-inter)"}
+						fontSize={20}
+						flex={1}
+						lineHeight={2}
+					>
+						<Box>
+							<i>Role </i>
+							{role}
+						</Box>
+						<Box>
+							<i>Stack </i> {stack}{" "}
+						</Box>
+						<Box> {content}</Box>
+					</Box>
 				</Flex>
+				{OtherContent && <OtherContent />}
 			</motion.div>
 		</Html>
 	);

@@ -58,7 +58,7 @@ const DynamicNav = () => {
 	// Function to handle the onClick event
 	const handleClickProject = () => {
 		// Change the camera's position
-		animateCamera(new THREE.Vector3(0, 0, 180));
+		animateCamera(new THREE.Vector3(0, 0, 200));
 	};
 
 	const handleClickEarth = () => {
