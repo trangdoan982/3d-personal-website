@@ -41,6 +41,12 @@ interface BrexProps {
 }
 
 const Brex: React.FC<BrexProps> = ({ onClose }) => {
+	const content = (
+		<div>
+			{" "}
+			Hello there <br /> whatever this is
+		</div>
+	);
 	return (
 		<Projects
 			imagePath="https://i.pinimg.com/originals/90/88/1e/90881e9b4b15ca8d24dd87be250b1bfe.gif"
@@ -50,7 +56,7 @@ const Brex: React.FC<BrexProps> = ({ onClose }) => {
 			link="https://www.brex.com/signup"
 			role="Fullstack Software Engineer"
 			stack="Typescript, Kotlin, NextJS, GraphQL, gRPC, postgreSQL"
-			content="I did this and this and this"
+			content={content}
 			OtherContent={OtherContent}
 		/>
 	);

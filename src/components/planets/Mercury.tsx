@@ -1,12 +1,14 @@
 import { useRouter } from "next/router";
 import Planet from "./Planet";
 import { Text, RoundedBox } from "@react-three/drei";
+import Card from "../Card";
+import Connect from "../Connect";
+import { Dispatch, SetStateAction } from "react";
 
-const Mercury = () => {
-	const router = useRouter();
-	const handleClick = () => {
-		router.push("/interests");
-	};
+interface MercuryProps {
+	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
+}
+const Mercury: React.FC<MercuryProps> = ({ setControlsEnabled }) => {
 	return (
 		<>
 			{" "}
@@ -18,13 +20,21 @@ const Mercury = () => {
 			<Text
 				color={"white"}
 				position={[-5, 0, 20]}
+				fontSize={1}
 				font="/spaceFont.ttf"
 				maxWidth={5}
 				textAlign="right"
-				onClick={handleClick}
 			>
-				This is the Mercury, where you will connect with me
+				Make first contact
 			</Text>
+			<Card
+				position={[5, 0, 20]}
+				text="But how?"
+				cardSize={[5, 3]}
+				fontSize={0.5}
+				setControlsEnabled={setControlsEnabled}
+				ProjectComponent={Connect}
+			/>
 		</>
 	);
 };

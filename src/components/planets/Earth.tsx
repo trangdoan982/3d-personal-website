@@ -1,31 +1,50 @@
 import Planet from "./Planet";
 import { Text } from "@react-three/drei";
-import Button3D from "../3DButton";
+import Card from "../Card";
+import { Dispatch, SetStateAction } from "react";
 
-const Earth = () => {
+interface EarthProps {
+	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
+}
+const Earth: React.FC<EarthProps> = ({ setControlsEnabled }) => {
 	return (
 		<>
 			<Planet
-				position={[0, 0, 50]}
+				position={[0, 0, 70]}
 				meshMaterialPath="/earth_map.jpeg"
 				spinSpeed={0.005}
 				size={3}
 			/>
 			<Text
 				color={"white"}
-				position={[-5, 0, 50]}
+				position={[-7, 0, 70]}
 				font="/spaceFont.ttf"
-				maxWidth={5}
-				textAlign="right"
+				maxWidth={9}
+				textAlign="left"
 			>
-				This is the Earth, where I list out things that ground me (aka
-				my interests)
+				Here are my earthly pleasures
 			</Text>
-			{/* <Button3D
-				text="Click me"
-				route="/interests"
-				position={[-10, -5, 50]}
-			/> */}
+			<Card
+				position={[7, 5, 70]}
+				text="Writing"
+				setControlsEnabled={setControlsEnabled}
+				cardSize={[5, 3]}
+				fontSize={0.5}
+			/>
+			<Card
+				position={[7, 0, 70]}
+				text="Visuals"
+				cardSize={[5, 3]}
+				fontSize={0.5}
+				setControlsEnabled={setControlsEnabled}
+			/>
+			<Card
+				position={[7, -5, 70]}
+				text="??"
+				cardSize={[5, 3]}
+				fontSize={0.5}
+				setControlsEnabled={setControlsEnabled}
+			/>
 		</>
 	);
 };

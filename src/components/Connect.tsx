@@ -1,0 +1,281 @@
+import { Box, Button, CloseButton, Flex } from "@chakra-ui/react";
+import { Html } from "@react-three/drei";
+import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+
+interface ConnectProps {
+	onClose: () => void;
+}
+interface FormValues {
+	question: string;
+	answer: string;
+	email: string;
+}
+
+const initialFormValues: FormValues = {
+	question: "",
+	answer: "",
+	email: "",
+};
+const Connect: React.FC<ConnectProps> = ({ onClose }) => {
+	const qAPairs: { [key: string]: string } = {
+		"Hey let's practice Muay Thai/ Jiujitsu together":
+			"Hi Trang, I'm Dubidu and live in New York City. Let's meet up and drill",
+		"Can we collaborate?":
+			"Hi, I like that you're working on BlahBluh. I think we might be able to collaborate on XYZ. Let's chat.",
+		"Do you want some contract work?":
+			"Yes, I have this opportunity for you (dev, dogsit, tutoring)",
+		"Can we be friends?":
+			"I relate to {} from your website/ writing/ work, and would love to chat",
+		"I can marry you for a US visa": "Yes I do",
+		"Would you like to go cowork with me on my passion project?":
+			"I live in NYC, working on this thing. Let's meet and cowork.",
+		"Wanna go explore this new place with me?":
+			"Hey, I think you'd like this [cool place]. Wanna hang here?",
+		"I want to go to dance class with you": "Hmu!",
+		"I want to host an event with you":
+			"Hey I have this idea for an event. You interested?",
+		"I have a special request": "",
+	};
+	const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
+
+	const handleChange = (e: any) => {
+		const { name, value } = e.target;
+		setFormValues({ ...formValues, [name]: value });
+	};
+
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		// Send formValues to the predetermined email
+		console.log("Form submitted:", formValues);
+		// Reset form after submission
+		setFormValues(initialFormValues);
+	};
+	const getRandomQuestion = () => {
+		const questions = Object.keys(qAPairs);
+		const randomQuestion =
+			questions[Math.floor(Math.random() * questions.length)];
+		return randomQuestion;
+	};
+
+	const handleRandomize = () => {
+		setFormValues({ ...formValues, question: getRandomQuestion() });
+	};
+	return (
+		<Html
+			style={{
+				width: "100vw",
+				height: "95vh",
+				top: "-50vh",
+				position: "absolute",
+				left: "-50vw",
+				overflowY: "auto",
+				borderRadius: "30px",
+				margin: "10px",
+				padding: "50px",
+				background: "green",
+				backgroundImage: 'url("/starry_background.png")',
+			}}
+		>
+			<CloseButton color="white" onClick={onClose} />
+			<motion.div
+				initial={{ opacity: 0, y: 100 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5, ease: "easeIn" }}
+			>
+				<div style={{ color: "white", padding: "20px" }}>
+					<div>
+						<p>
+							Hi there, if you've had some fun browsing through
+							this website, it means we could be friends. <br />{" "}
+							I'm a big fan of talking to strangers, meeting new
+							people, and letting these kinds of magic happen.{" "}
+							<br /> But I get it, I've browsed through endless
+							personal websites, found cool people, and never
+							reached out to them because I didn't know what to
+							say but "Your website seems cool," <br />
+							so here're some prompts to help spark your
+							creativity
+						</p>
+					</div>
+					<div>
+						<form
+							onSubmit={handleSubmit}
+							style={{
+								margin: "20px",
+								display: "flex",
+								width: "100%",
+								flexDirection: "column",
+								gap: "20px",
+							}}
+						>
+							<div className="question">
+								<label htmlFor="question">
+									* Select a question:
+								</label>
+								<div
+									style={{
+										display: "flex",
+										flexDirection: "row",
+									}}
+								>
+									<select
+										id="question"
+										name="question"
+										value={formValues.question}
+										onChange={handleChange}
+										style={{
+											color: "black",
+											borderRadius: "5px",
+											width: "500px",
+										}}
+										required={true}
+									>
+										<option value="">
+											Select a question
+										</option>
+										{Object.keys(qAPairs).map(
+											(q, index) => (
+												<option key={index} value={q}>
+													{q}
+												</option>
+											)
+										)}
+									</select>
+									<button
+										type="button"
+										onClick={handleRandomize}
+										style={{
+											backgroundColor: "yellow",
+											color: "black",
+											marginLeft: "12px",
+											borderRadius: "5px",
+											display: "flex",
+											flexDirection: "row",
+										}}
+									>
+										<img
+											src="/icons/randomize.svg"
+											width={25}
+											style={{
+												backgroundColor: "white",
+												borderRadius: "5px",
+												padding: "5px",
+											}}
+										/>
+									</button>
+								</div>
+							</div>
+							<div className="answer">
+								<label htmlFor="answer">* Answer:</label>
+								<div>
+									<textarea
+										rows={4}
+										cols={50}
+										id="answer"
+										name="answer"
+										value={formValues.answer}
+										onChange={handleChange}
+										placeholder={
+											qAPairs[formValues.question]
+										}
+										required={true}
+										style={{
+											color: "black",
+											height: "100px",
+											width: "500px",
+											borderRadius: "5px",
+											padding: "10px",
+										}}
+									></textarea>
+								</div>
+							</div>
+							<div className="email">
+								<label htmlFor="email"> * Your email:</label>
+								<div>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										value={formValues.email}
+										onChange={handleChange}
+										placeholder=""
+										required={true}
+										style={{
+											color: "black",
+											borderRadius: "5px",
+											width: "500px",
+											padding: "10px",
+										}}
+									/>
+								</div>
+							</div>
+							<button
+								type="submit"
+								style={{
+									backgroundColor: "white",
+									color: "black",
+									borderRadius: "20px",
+									padding: "10px",
+									width: "100px",
+								}}
+							>
+								Submit
+							</button>
+						</form>
+						<div style={{ margin: "50px 20px" }}>
+							<p>
+								You can also <br />{" "}
+								<ul style={{ listStyle: "inherit" }}>
+									<li>
+										shoot me an email at
+										<span style={{ fontFamily: "courier" }}>
+											{" "}
+											doanthithuytrang982@gmail.com{" "}
+										</span>{" "}
+									</li>
+									<li>
+										check out my{" "}
+										<u>
+											<a href="https://www.linkedin.com/in/trang-doan-m23/">
+												LinkedIn,
+											</a>
+										</u>{" "}
+										<u>
+											<a href="https://www.instagram.com/gnartnaod89/">
+												Instagram
+											</a>
+										</u>
+										, or{" "}
+										<u>
+											<a href="https://github.com/trangdoan982">
+												{" "}
+												Github{" "}
+											</a>
+										</u>
+									</li>
+
+									<li>
+										{" "}
+										follow my substack
+										<iframe
+											src="https://trangdoan.substack.com/embed"
+											width="550"
+											height="200"
+											style={{
+												border: "1px solid #EEE",
+												background: "white",
+											}}
+										></iframe>
+									</li>
+								</ul>
+							</p>
+						</div>
+					</div>
+				</div>
+			</motion.div>
+		</Html>
+	);
+};
+
+export default Connect;

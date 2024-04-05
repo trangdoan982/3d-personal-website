@@ -62,7 +62,7 @@ const DynamicNav = () => {
 	};
 
 	const handleClickEarth = () => {
-		animateCamera(new THREE.Vector3(0, 0, 60));
+		animateCamera(new THREE.Vector3(0, 0, 90));
 	};
 
 	const handleClickConnect = () => {

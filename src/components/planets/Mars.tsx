@@ -31,21 +31,21 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 			<Card
 				position={[25, 8, 150]}
 				text="Brex"
-				size={[10, 6]}
+				cardSize={[10, 6]}
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={Brex}
 			/>
 			<Card
 				position={[25, 0, 150]}
 				text="Wikicredibility"
-				size={[10, 6]}
+				cardSize={[10, 6]}
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={Wikicredibility}
 			/>
 			<Card
 				position={[25, -8, 150]}
 				text="This website"
-				size={[10, 6]}
+				cardSize={[10, 6]}
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={PersonalWebsite}
 			/>

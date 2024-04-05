@@ -14,19 +14,21 @@ interface CardProps {
 	position: Vector3;
 	text: string;
 	ProjectComponent?: React.ComponentType<any>;
-	size?: [
+	cardSize?: [
 		width?: number | undefined,
 		height?: number | undefined,
 		widthSegments?: number | undefined,
 		heightSegments?: number | undefined,
 	];
+	fontSize?: number;
 	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
 }
 const Card: React.FC<CardProps> = ({
 	position,
 	text,
 	ProjectComponent,
-	size = [6, 3],
+	cardSize: size = [6, 3],
+	fontSize = 1,
 	setControlsEnabled,
 }) => {
 	const positionArr = position as number[];
@@ -105,11 +107,11 @@ const Card: React.FC<CardProps> = ({
 				position={shadowPosition}
 				radius={0.5}
 			>
-				<meshBasicMaterial color="pink" transparent opacity={0.7} />
+				<meshBasicMaterial color="yellow" transparent opacity={0.7} />
 			</RoundedBox>
 			<Text
 				position={textPosition}
-				fontSize={1}
+				fontSize={fontSize}
 				color={"black"}
 				ref={textRef}
 				// font="/spaceFont.ttf"

@@ -59,8 +59,8 @@ export default function App() {
 					/>
 					<Sun />
 					<Mars setControlsEnabled={setControlsEnabled} />
-					<Earth />
-					<Mercury />
+					<Earth setControlsEnabled={setControlsEnabled} />
+					<Mercury setControlsEnabled={setControlsEnabled} />
 				</Canvas>
 			</div>
 		</ChakraProvider>

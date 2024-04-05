@@ -11,7 +11,7 @@ export interface OverlayPageProps {
 	link: string;
 	role: string;
 	stack: string;
-	content: string;
+	content: React.ReactNode;
 	OtherContent?: React.ComponentType<any>;
 }
 
