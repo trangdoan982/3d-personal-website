@@ -81,7 +81,7 @@ const Card: React.FC<CardProps> = ({
 	const shadowPosition = new THREE.Vector3(
 		positionArr[0],
 		positionArr[1],
-		positionArr[2] - 2
+		positionArr[2] - 1
 	);
 	const textPosition = new THREE.Vector3(
 		positionArr[0] - 0.3,

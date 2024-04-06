@@ -65,7 +65,7 @@ const Projects: React.FC<OverlayPageProps> = ({
 						<Box fontSize={20}> {time} </Box>
 						<Box fontSize={20}>
 							{" "}
-							<a href={link}> Link </a>
+							<a href={link}> Link ➜ </a>
 						</Box>
 					</Box>
 					<Box
