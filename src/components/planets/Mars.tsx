@@ -1,7 +1,6 @@
 import Planet from "./Planet";
 import { Text } from "@react-three/drei";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
-import Projects from "../Projects";
 import Card from "../Card";
 import Brex from "../Projects/Brex";
 import PersonalWebsite from "../Projects/PersonalWebsite";

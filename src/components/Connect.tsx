@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 
 interface ConnectProps {
-	onClose: () => void;
+	onClose?: () => void;
+	intro: React.ReactNode;
 }
 interface FormValues {
 	question: string;
@@ -17,10 +18,8 @@ const initialFormValues: FormValues = {
 	answer: "",
 	email: "",
 };
-const Connect: React.FC<ConnectProps> = ({ onClose }) => {
+const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 	const qAPairs: { [key: string]: string } = {
-		"Hey let's practice Muay Thai/ Jiujitsu together":
-			"Hi Trang, I'm Dubidu and live in New York City. Let's meet up and drill",
 		"Can we collaborate?":
 			"Hi, I like that you're working on BlahBluh. I think we might be able to collaborate on XYZ. Let's chat.",
 		"Do you want some contract work?":
@@ -35,6 +34,9 @@ const Connect: React.FC<ConnectProps> = ({ onClose }) => {
 		"I want to go to dance class with you": "Hmu!",
 		"I want to host an event with you":
 			"Hey I have this idea for an event. You interested?",
+		"Hey let's practice Muay Thai/ Jiujitsu together":
+			"Hi Trang, I'm Dubidu and live in New York City. Let's meet up and drill",
+		"Your website seems cool": "Duh",
 		"I have a special request": "",
 	};
 	const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
@@ -84,20 +86,7 @@ const Connect: React.FC<ConnectProps> = ({ onClose }) => {
 				transition={{ duration: 0.5, ease: "easeIn" }}
 			>
 				<div style={{ color: "white", padding: "20px" }}>
-					<div>
-						<p>
-							Hi there, if you've had some fun browsing through
-							this website, it means we could be friends. <br />{" "}
-							I'm a big fan of talking to strangers, meeting new
-							people, and letting these kinds of magic happen.{" "}
-							<br /> But I get it, I've browsed through endless
-							personal websites, found cool people, and never
-							reached out to them because I didn't know what to
-							say but "Your website seems cool," <br />
-							so here're some prompts to help spark your
-							creativity
-						</p>
-					</div>
+					<div style={{ fontSize: "20px" }}>{intro}</div>
 					<div>
 						<form
 							onSubmit={handleSubmit}
@@ -257,7 +246,7 @@ const Connect: React.FC<ConnectProps> = ({ onClose }) => {
 
 									<li>
 										{" "}
-										follow my substack
+										follow my Substack
 										<iframe
 											src="https://trangdoan.substack.com/embed"
 											width="550"

@@ -1,5 +1,5 @@
 import { Box, Image } from "@chakra-ui/react";
-import Projects from "../Projects";
+import Projects from "../projects";
 
 interface PersonalWebsiteProps {
 	onClose: () => void;

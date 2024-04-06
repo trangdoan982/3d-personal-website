@@ -9,6 +9,24 @@ interface MercuryProps {
 	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
 }
 const Mercury: React.FC<MercuryProps> = ({ setControlsEnabled }) => {
+	const intro = (
+		<p>
+			Hi there, if you've had some fun browsing through this website, it
+			means we could be friends. <br /> I'm a big fan of talking to
+			strangers, meeting new people, and letting this kind of magic
+			happen. <br /> But I get it, I've browsed through endless personal
+			websites, found cool people, and never reached out to them because I
+			didn't know what to say except "Your website seems cool." <br />
+			So here are some prompts to help spark your creativity:{" "}
+		</p>
+	);
+	interface ConnectMainProps {
+		onClose: () => void;
+	}
+	const ConnectMain: React.FC<ConnectMainProps> = ({ onClose }) => {
+		return <Connect intro={intro} onClose={onClose} />;
+	};
+
 	return (
 		<>
 			{" "}
@@ -33,7 +51,7 @@ const Mercury: React.FC<MercuryProps> = ({ setControlsEnabled }) => {
 				cardSize={[5, 3]}
 				fontSize={0.5}
 				setControlsEnabled={setControlsEnabled}
-				ProjectComponent={Connect}
+				ProjectComponent={ConnectMain}
 			/>
 		</>
 	);

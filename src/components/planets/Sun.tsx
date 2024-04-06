@@ -19,8 +19,8 @@ const Sun = () => {
 				fontSize={10}
 				textAlign="left"
 			>
-				Welcome to my space. This is Trang, an interdisciplinary
-				software engineer. I code, tell stories, move my body, and build
+				Welcome to my space. I am Trang, an interdisciplinary software
+				engineer. I code, tell stories, move my body, and build
 				communities
 			</Text>
 			<Text

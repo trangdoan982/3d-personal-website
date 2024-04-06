@@ -107,7 +107,7 @@ const Card: React.FC<CardProps> = ({
 				position={shadowPosition}
 				radius={0.5}
 			>
-				<meshBasicMaterial color="yellow" transparent opacity={0.7} />
+				<meshBasicMaterial color="grey" transparent opacity={0.7} />
 			</RoundedBox>
 			<Text
 				position={textPosition}
