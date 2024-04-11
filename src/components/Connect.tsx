@@ -1,7 +1,8 @@
-import { Box, Button, CloseButton, Flex } from "@chakra-ui/react";
+import { CloseButton } from "@chakra-ui/react";
 import { Html } from "@react-three/drei";
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
+import Toast from "./Toast";
 
 interface ConnectProps {
 	onClose?: () => void;
@@ -18,6 +19,7 @@ const initialFormValues: FormValues = {
 	answer: "",
 	email: "",
 };
+
 const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 	const qAPairs: { [key: string]: string } = {
 		"Can we collaborate?":
@@ -40,16 +42,37 @@ const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 		"I have a special request": "",
 	};
 	const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
+	const [showToast, setShowToast] = useState(false);
 
 	const handleChange = (e: any) => {
 		const { name, value } = e.target;
 		setFormValues({ ...formValues, [name]: value });
 	};
 
-	const handleSubmit = (e: React.FormEvent) => {
+	useEffect(() => {
+		let timeoutId: any;
+		if (showToast) {
+			timeoutId = setTimeout(() => {
+				setShowToast(false);
+			}, 3000);
+		}
+		return () => clearTimeout(timeoutId);
+	}, [showToast]);
+
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		// Send formValues to the predetermined email
-		console.log("Form submitted:", formValues);
+		try {
+			const res = await fetch("/api/sendEmail", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formValues),
+			});
+			setShowToast(true);
+		} catch (e) {
+			console.log(e);
+		}
 		// Reset form after submission
 		setFormValues(initialFormValues);
 	};
@@ -212,6 +235,7 @@ const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 								Submit
 							</button>
 						</form>
+						{showToast && <Toast />}
 						<div style={{ margin: "50px 20px" }}>
 							<p>
 								You can also <br />{" "}
