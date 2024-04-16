@@ -33,7 +33,7 @@ const galleryData: GalleryItem[] = [
 	{
 		id: 5,
 		title: "CAN YOU TRUST WIKIPEDIA?",
-		imageUrl: "https://i.imgur.com/7Mqtj58.png",
+		imageUrl: "https://i.imgur.com/9qpPHby.png",
 		href: "https://trangdoan.substack.com/p/can-i-trust-wikipedia",
 	},
 	{

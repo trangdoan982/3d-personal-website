@@ -1,10 +1,30 @@
-import { useRouter } from "next/router";
+import { useLoader } from "@react-three/fiber";
 import Planet from "./Planet";
-import { Text, RoundedBox } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import Card from "../Card";
 import Connect from "../Connect";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useRef } from "react";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
+import { MTLLoader } from "three/examples/jsm/Addons.js";
 
+const UFO = () => {
+	const objRef = useRef(null);
+	const mtl = useLoader(MTLLoader, "/models/Low_poly_UFO.mtl");
+	const obj = useLoader(OBJLoader, "/models/ufo.obj", (loader) => {
+		loader.setMaterials(mtl);
+	});
+
+	return (
+		<group
+			ref={objRef}
+			position={[0, -1, 20]}
+			scale={0.1}
+			rotation={[-10, -20, -10]}
+		>
+			<primitive object={obj} />
+		</group>
+	);
+};
 interface MercuryProps {
 	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
 }
@@ -30,14 +50,15 @@ const Mercury: React.FC<MercuryProps> = ({ setControlsEnabled }) => {
 	return (
 		<>
 			{" "}
-			<Planet
+			{/* <Planet
 				position={[0, 0, 20]}
 				meshMaterialPath="/mercury.jpeg"
 				spinSpeed={0.005}
-			/>
+			/> */}
+			<UFO />
 			<Text
 				color={"white"}
-				position={[-5, 0, 20]}
+				position={[-7, 0, 20]}
 				fontSize={1}
 				font="/spaceFont.ttf"
 				maxWidth={5}
@@ -46,9 +67,9 @@ const Mercury: React.FC<MercuryProps> = ({ setControlsEnabled }) => {
 				Make first contact
 			</Text>
 			<Card
-				position={[5, 0, 20]}
+				position={[6, 0, 20]}
 				text="But how?"
-				cardSize={[5, 3]}
+				cardSize={[4, 2]}
 				fontSize={0.5}
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={ConnectMain}

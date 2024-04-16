@@ -48,7 +48,6 @@ const GalleryItem: React.FC<GalleryItem> = ({ title, imageUrl, href }) => {
 	);
 };
 
-// Gallery component to display the list of items
 interface GalleryProps {
 	onClose: () => void;
 	galleryData: GalleryItem[];

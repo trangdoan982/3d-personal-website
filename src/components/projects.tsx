@@ -41,7 +41,11 @@ const Projects: React.FC<OverlayPageProps> = ({
 				backgroundImage: 'url("/starry_background.png")',
 			}}
 		>
-			<CloseButton color="white" onClick={onClose} />
+			<CloseButton
+				color="white"
+				onClick={onClose}
+				style={{ position: "fixed" }}
+			/>
 			<motion.div
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -53,6 +57,9 @@ const Projects: React.FC<OverlayPageProps> = ({
 						borderRadius="20"
 						margin={40}
 						src={imagePath}
+						// width={"100%"}
+						height={"70vh"}
+						objectFit={"cover"}
 					/>
 				</Box>
 				<Flex direction={"row"} padding={40} alignItems={"baseline"}>
@@ -80,9 +87,11 @@ const Projects: React.FC<OverlayPageProps> = ({
 							{role}
 						</Box>
 						<Box>
-							<i>Stack </i> {stack}{" "}
+							<i>Stack </i> {stack}
 						</Box>
-						<Box> {content}</Box>
+						<Box>
+							<br /> {content}
+						</Box>
 					</Box>
 				</Flex>
 				{OtherContent && <OtherContent />}

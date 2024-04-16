@@ -54,7 +54,7 @@ export default function App() {
 						count={10000}
 						radius={100}
 						speed={2}
-						factor={6}
+						factor={8}
 						fade={true}
 					/>
 					<Sun />

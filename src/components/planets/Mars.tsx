@@ -1,5 +1,5 @@
 import Planet from "./Planet";
-import { Text } from "@react-three/drei";
+import { Text, useCursor } from "@react-three/drei";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import Card from "../Card";
 import Brex from "../Projects/Brex";
@@ -10,6 +10,13 @@ interface MarsProps {
 	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
 }
 const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
+	const handleViewResume = () => {
+		window.open(
+			"https://drive.google.com/file/d/1Wxli3bgxoxnHO2s2kxyZwmT8-EeCiIB4/view?usp=sharing"
+		);
+	};
+	const [hovered, setHovered] = useState(false);
+	useCursor(hovered);
 	return (
 		<>
 			<Planet
@@ -20,12 +27,16 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 			/>
 			<Text
 				color={"white"}
-				position={[-10, 0, 150]}
+				position={[-11, 0, 150]}
 				font="/spaceFont.ttf"
-				maxWidth={5}
-				textAlign="right"
+				maxWidth={10}
+				textAlign="left"
+				onClick={handleViewResume}
+				onPointerOver={() => setHovered(true)}
+				onPointerOut={() => setHovered(false)}
 			>
-				This is the Mars, where I flex about my projects
+				My engineering projects are out of this world. Here are some
+				selected work. You can view my resume here.
 			</Text>
 			<Card
 				position={[25, 8, 150]}

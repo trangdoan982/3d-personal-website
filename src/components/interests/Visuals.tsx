@@ -48,6 +48,18 @@ const galleryData: GalleryItem[] = [
 			"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdcefb705-97cc-488e-8a6b-123579c69b71_2000x2000.jpeg",
 		href: "https://trangdoan.substack.com/i/136027846/day-comic",
 	},
+	{
+		id: 6,
+		title: "COCKROACH HUNTER DOCUMENTARY (Produce assistant with Rice Production)",
+		imageUrl: "https://i.imgur.com/hVmckxq.png",
+		href: "https://www.facebook.com/watch/?v=340052270329828",
+	},
+	{
+		id: 7,
+		title: "THE LOTTERY SINGER DOCUMENTARY (Produce assistant with Rice Production)",
+		imageUrl: "https://i.imgur.com/A17naHH.png",
+		href: "https://www.youtube.com/watch?v=34QymJyq1OM&t=14s&ab_channel=RICE",
+	},
 ];
 
 interface VisualsProps {
