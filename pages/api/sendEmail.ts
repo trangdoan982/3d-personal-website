@@ -5,7 +5,7 @@ const transporter = nodemailer.createTransport({
 	port: 465,
 	secure: true, // Use `true` for port 465, `false` for all other ports
 	auth: {
-		user: "trang3dwebsite@gmail.com",
+		user: process.env.NODEMAILER_USER,
 		pass: process.env.SMTP_PASSWORD,
 	},
 });
@@ -15,8 +15,8 @@ export default async function handler(req: any, res: any) {
 	const { question, answer, email } = req.body;
 	// send mail with defined transport object
 	const info = await transporter.sendMail({
-		from: "trang3dwebsite@gmail.com", // sender address
-		to: "doanthithuytrang982@gmail.com", // list of receivers
+		from: process.env.NODEMAILER_USER,
+		to: process.env.RECEIVER_EMAIL,
 		subject: `You've got a new reach out from ${email}`, // Subject line
 		text: `${question}: ${answer}`, // plain text body
 		html: `<b> ${question}</b> <br/> ${answer}`, // html body

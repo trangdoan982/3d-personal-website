@@ -6,6 +6,7 @@ import Connect from "../Connect";
 import { Dispatch, SetStateAction, useRef } from "react";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import { MTLLoader } from "three/examples/jsm/Addons.js";
+import { Material, TextureLoader } from "three";
 
 const UFO = () => {
 	const objRef = useRef(null);
@@ -13,6 +14,22 @@ const UFO = () => {
 	const obj = useLoader(OBJLoader, "/models/ufo.obj", (loader) => {
 		loader.setMaterials(mtl);
 	});
+	mtl.preload();
+	const textureLoader = new TextureLoader();
+	mtl.materials.forEach((material: any) => {
+		if (material.map) {
+			const texture = textureLoader.load(material.map);
+			material.map = texture;
+		}
+	});
+
+	// const materialsArray = Array.isArray(mtl) ? mtl : [mtl];
+	// materialsArray.forEach((material: MTLLoader.MaterialCreator) => {
+	// 	if (material.map) {
+	// 		const texture = textureLoader.load(material.map);
+	// 		material.map = texture;
+	// 	}
+	// });
 
 	return (
 		<group

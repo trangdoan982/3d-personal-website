@@ -50,13 +50,13 @@ const galleryData: GalleryItem[] = [
 	},
 	{
 		id: 6,
-		title: "COCKROACH HUNTER DOCUMENTARY (Produce assistant with Rice Production)",
+		title: "COCKROACH HUNTER DOCUMENTARY (Producer assistant with Rice Production)",
 		imageUrl: "https://i.imgur.com/hVmckxq.png",
 		href: "https://www.facebook.com/watch/?v=340052270329828",
 	},
 	{
 		id: 7,
-		title: "THE LOTTERY SINGER DOCUMENTARY (Produce assistant with Rice Production)",
+		title: "THE LOTTERY SINGER DOCUMENTARY (Producer assistant with Rice Production)",
 		imageUrl: "https://i.imgur.com/A17naHH.png",
 		href: "https://www.youtube.com/watch?v=34QymJyq1OM&t=14s&ab_channel=RICE",
 	},

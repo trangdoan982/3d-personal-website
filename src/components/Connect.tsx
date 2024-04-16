@@ -63,7 +63,7 @@ const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 		e.preventDefault();
 		try {
 			const res = await fetch("/api/sendEmail", {
-				method: "GET",
+				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
