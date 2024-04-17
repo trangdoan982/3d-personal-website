@@ -16,12 +16,12 @@ const UFO = () => {
 	});
 	mtl.preload();
 	const textureLoader = new TextureLoader();
-	mtl.materials.forEach((material: any) => {
-		if (material.map) {
-			const texture = textureLoader.load(material.map);
-			material.map = texture;
-		}
-	});
+	// mtl.materials.forEach((material: any) => {
+	// 	if (material.map) {
+	// 		const texture = textureLoader.load(material.map);
+	// 		material.map = texture;
+	// 	}
+	// });
 
 	// const materialsArray = Array.isArray(mtl) ? mtl : [mtl];
 	// materialsArray.forEach((material: MTLLoader.MaterialCreator) => {
