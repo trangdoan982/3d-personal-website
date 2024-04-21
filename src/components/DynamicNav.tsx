@@ -66,7 +66,7 @@ const DynamicNav = () => {
 	};
 
 	const handleClickConnect = () => {
-		animateCamera(new THREE.Vector3(0, 0, 30));
+		animateCamera(new THREE.Vector3(0, 0, 40));
 	};
 
 	const margin = 4;
@@ -100,19 +100,31 @@ const DynamicNav = () => {
 				style={{
 					margin: margin,
 					color: "white",
+					fontFamily: "var(--font-inter)",
+					fontWeight: 500,
 				}}
 				onClick={handleClickProject}
 			>
 				Projects{" "}
 			</button>
 			<button
-				style={{ margin: margin, color: "white" }}
+				style={{
+					margin: margin,
+					color: "white",
+					fontFamily: "var(--font-inter)",
+					fontWeight: 600,
+				}}
 				onClick={handleClickEarth}
 			>
 				Earthly pleasures
 			</button>
 			<button
-				style={{ margin: margin, color: "white" }}
+				style={{
+					margin: margin,
+					color: "white",
+					fontFamily: "var(--font-inter)",
+					fontWeight: 600,
+				}}
 				onClick={handleClickConnect}
 			>
 				Connect

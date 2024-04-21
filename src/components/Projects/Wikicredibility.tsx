@@ -9,7 +9,10 @@ const Wikicredibility: React.FC<WikicredibilityProps> = ({ onClose }) => {
 		<div>
 			Wikipedia is always among top 10 most visited websites. Yet, most
 			users when reading Wikipedia aren't aware that it is{" "}
-			<a href="https://trangdoan.substack.com/i/103863645/overview">
+			<a
+				href="https://trangdoan.substack.com/i/103863645/overview"
+				target="_blank"
+			>
 				<u> extremely biased. </u>
 			</a>
 			To address this issue, I built an NLP model to detect relative level

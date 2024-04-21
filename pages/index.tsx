@@ -1,5 +1,5 @@
 import css from "@/styles/Home.module.css";
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars, PerspectiveCamera } from "@react-three/drei";
 import Earth from "@/components/planets/Earth";
@@ -8,7 +8,6 @@ import Mercury from "@/components/planets/Mercury";
 import Mars from "@/components/planets/Mars";
 import { ChakraProvider } from "@chakra-ui/react";
 import DynamicNav from "@/components/DynamicNav";
-// import Loader from "@/components/Loader";
 import { Loader } from "@react-three/drei";
 
 interface ToggleOrbitControlsProps {
@@ -36,7 +35,6 @@ export default function App() {
 		<ChakraProvider>
 			<div className={css.scene}>
 				<Canvas>
-					{/* <Suspense fallback={<Loader />}> */}
 					<PerspectiveCamera makeDefault position={[0, 0, 500]} />
 					{controlsEnabled ? <DynamicNav /> : null}
 					<ToggleOrbitControls enabled={controlsEnabled} />
@@ -54,7 +52,6 @@ export default function App() {
 					<Mars setControlsEnabled={setControlsEnabled} />
 					<Earth setControlsEnabled={setControlsEnabled} />
 					<Mercury setControlsEnabled={setControlsEnabled} />
-					{/* </Suspense> */}
 				</Canvas>
 				<Loader />
 			</div>

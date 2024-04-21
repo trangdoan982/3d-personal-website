@@ -1,36 +1,19 @@
 import { useLoader } from "@react-three/fiber";
-import Planet from "./Planet";
 import { Text } from "@react-three/drei";
 import Card from "../Card";
 import Connect from "../Connect";
 import { Dispatch, SetStateAction, useRef } from "react";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import { MTLLoader } from "three/examples/jsm/Addons.js";
-import { Material, TextureLoader } from "three";
+import { Group } from "three";
 
 const UFO = () => {
-	const objRef = useRef(null);
+	const objRef = useRef<Group>(null);
 	const mtl = useLoader(MTLLoader, "/models/Low_poly_UFO.mtl");
 	const obj = useLoader(OBJLoader, "/models/ufo.obj", (loader) => {
 		loader.setMaterials(mtl);
 	});
 	mtl.preload();
-	const textureLoader = new TextureLoader();
-	// mtl.materials.forEach((material: any) => {
-	// 	if (material.map) {
-	// 		const texture = textureLoader.load(material.map);
-	// 		material.map = texture;
-	// 	}
-	// });
-
-	// const materialsArray = Array.isArray(mtl) ? mtl : [mtl];
-	// materialsArray.forEach((material: MTLLoader.MaterialCreator) => {
-	// 	if (material.map) {
-	// 		const texture = textureLoader.load(material.map);
-	// 		material.map = texture;
-	// 	}
-	// });
-
 	return (
 		<group
 			ref={objRef}
@@ -66,12 +49,6 @@ const Mercury: React.FC<MercuryProps> = ({ setControlsEnabled }) => {
 
 	return (
 		<>
-			{" "}
-			{/* <Planet
-				position={[0, 0, 20]}
-				meshMaterialPath="/mercury.jpeg"
-				spinSpeed={0.005}
-			/> */}
 			<UFO />
 			<Text
 				color={"white"}

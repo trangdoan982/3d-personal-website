@@ -20,6 +20,7 @@ const GalleryItem: React.FC<GalleryItem> = ({ title, imageUrl, href }) => {
 				textDecoration: "none",
 				color: "inherit",
 			}}
+			target="_blank"
 		>
 			<div
 				style={{
@@ -73,7 +74,7 @@ const Gallery: React.FC<GalleryProps> = ({ onClose, galleryData, intro }) => {
 			<CloseButton
 				color="white"
 				onClick={onClose}
-				style={{ margin: "10px" }}
+				style={{ margin: "10px", position: "fixed" }}
 			/>
 			<motion.div
 				initial={{ opacity: 0, y: 100 }}

@@ -102,7 +102,11 @@ const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 				backgroundImage: 'url("/starry_background.png")',
 			}}
 		>
-			<CloseButton color="white" onClick={onClose} />
+			<CloseButton
+				color="white"
+				onClick={onClose}
+				style={{ position: "fixed" }}
+			/>
 			<motion.div
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -250,18 +254,27 @@ const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 									<li>
 										check out my{" "}
 										<u>
-											<a href="https://www.linkedin.com/in/trang-doan-m23/">
+											<a
+												href="https://www.linkedin.com/in/trang-doan-m23/"
+												target="_blank"
+											>
 												LinkedIn,
 											</a>
 										</u>{" "}
 										<u>
-											<a href="https://www.instagram.com/gnartnaod89/">
+											<a
+												href="https://www.instagram.com/gnartnaod89/"
+												target="_blank"
+											>
 												Instagram
 											</a>
 										</u>
 										, or{" "}
 										<u>
-											<a href="https://github.com/trangdoan982">
+											<a
+												href="https://github.com/trangdoan982"
+												target="_blank"
+											>
 												{" "}
 												Github{" "}
 											</a>

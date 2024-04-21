@@ -62,7 +62,9 @@ const Writing: React.FC<WritingProps> = ({ onClose }) => {
 			All of my writings could be found on{" "}
 			<u>
 				{" "}
-				<a href="https://trangdoan.substack.com/">Substack</a>
+				<a href="https://trangdoan.substack.com/" target="_blank">
+					Substack
+				</a>
 			</u>
 			. Here are some of my favorite.
 		</div>

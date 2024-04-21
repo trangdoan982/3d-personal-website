@@ -12,7 +12,8 @@ interface MarsProps {
 const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 	const handleViewResume = () => {
 		window.open(
-			"https://drive.google.com/file/d/1Wxli3bgxoxnHO2s2kxyZwmT8-EeCiIB4/view?usp=sharing"
+			"https://drive.google.com/file/d/1Wxli3bgxoxnHO2s2kxyZwmT8-EeCiIB4/view?usp=sharing",
+			"_blank"
 		);
 	};
 	const [hovered, setHovered] = useState(false);

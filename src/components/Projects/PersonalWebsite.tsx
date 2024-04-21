@@ -10,7 +10,10 @@ const PersonalWebsite: React.FC<PersonalWebsiteProps> = ({ onClose }) => {
 			This website is made with joy! <br />
 			I'm especially proud of this website because I tried to make it once
 			in 2021, but{" "}
-			<a href="https://trangdoan.substack.com/i/103278110/side-projects">
+			<a
+				href="https://trangdoan.substack.com/i/103278110/side-projects"
+				target="_blank"
+			>
 				<u>gave up</u> half-way.{" "}
 			</a>{" "}
 			Picking it up and feeling confident doing so was such a growth
@@ -24,8 +27,7 @@ const PersonalWebsite: React.FC<PersonalWebsiteProps> = ({ onClose }) => {
 			imagePath={"https://i.imgur.com/dwcoI8A.gif"}
 			projectTitle="This Website"
 			time="February 2024 - April 2024"
-			// TODO: replace link once hosted online
-			link="localhost:3000"
+			link="https://github.com/trangdoan982/3d-personal-website"
 			role="Frontend developer"
 			stack="Typescript,ThreeJS, NextJS, React"
 			content={content}
