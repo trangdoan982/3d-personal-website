@@ -45,7 +45,11 @@ const Brex: React.FC<BrexProps> = ({ onClose }) => {
 		<div>
 			<br />
 			<b>Growth team</b> <br />
-			<ul style={{ listStyle: "inherit" }}>
+			<ul
+				style={{
+					listStyle: "inherit",
+				}}
+			>
 				<li>
 					Led the project to block bad leads from the signup flow to
 					save resources for Sales team; collaborated with Data

@@ -17,8 +17,8 @@ const UFO = () => {
 	return (
 		<group
 			ref={objRef}
-			position={[0, -1, 20]}
-			scale={0.1}
+			position={[7, -1, 0]}
+			scale={0.12}
 			rotation={[-10, -20, -10]}
 		>
 			<primitive object={obj} />
@@ -52,16 +52,17 @@ const Mercury: React.FC<MercuryProps> = ({ setControlsEnabled }) => {
 			<UFO />
 			<Text
 				color={"white"}
-				position={[-7, 0, 20]}
-				fontSize={1}
-				font="/spaceFont.ttf"
+				position={[-1.5, 2, 0]}
+				fontSize={0.85}
+				font="/fonts/futura_medium.ttf"
+				lineHeight={1.2}
 				maxWidth={5}
 				textAlign="right"
 			>
 				Make first contact
 			</Text>
 			<Card
-				position={[6, 0, 20]}
+				position={[-0.9, -1.1, 0]}
 				text="But how?"
 				cardSize={[4, 2]}
 				fontSize={0.5}

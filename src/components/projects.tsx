@@ -39,6 +39,8 @@ const Projects: React.FC<OverlayPageProps> = ({
 				margin: "10px",
 				padding: "10px",
 				backgroundImage: 'url("/starry_background.png")',
+				fontFamily: "var(--font-futura)",
+				fontWeight: 300,
 			}}
 		>
 			<CloseButton
@@ -65,7 +67,7 @@ const Projects: React.FC<OverlayPageProps> = ({
 				<Flex direction={"row"} padding={40} alignItems={"baseline"}>
 					<Box
 						color={"white"}
-						fontFamily={"var(--font-inter)"}
+						fontFamily={"var(--font-futura)"}
 						flex={1}
 					>
 						<Box fontSize={40}> {projectTitle} </Box>
@@ -80,7 +82,7 @@ const Projects: React.FC<OverlayPageProps> = ({
 					</Box>
 					<Box
 						color={"white"}
-						fontFamily={"var(--font-inter)"}
+						fontFamily={"var(--font-futura)"}
 						fontSize={20}
 						flex={1}
 						lineHeight={2}

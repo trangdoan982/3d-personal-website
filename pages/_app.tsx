@@ -19,6 +19,29 @@ const episcene = localFont({
 	adjustFontFallback: "Times New Roman",
 });
 
+const futura = localFont({
+	src: [
+		{
+			path: "../public/fonts/futura_bold.ttf",
+			weight: "600",
+		},
+		{
+			path: "../public/fonts/futura_bold_condense.ttf",
+			weight: "500",
+		},
+		{
+			path: "../public/fonts/futura_heavy.ttf",
+			weight: "400",
+		},
+		{
+			path: "../public/fonts/futura_medium.ttf",
+			weight: "300",
+		},
+	],
+	variable: "--font-futura",
+	// adjustFontFallback: "Arial",
+});
+
 const nasalization = localFont({
 	src: [
 		{
@@ -33,7 +56,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<main
-			className={`${episcene.variable} ${nasalization.variable} ${inter.className}`}
+			className={`${episcene.variable} ${futura.variable} ${nasalization.variable} ${inter.className}`}
 		>
 			<Component {...pageProps} />
 		</main>

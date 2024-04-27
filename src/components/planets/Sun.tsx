@@ -18,15 +18,17 @@ const Sun = () => {
 	return (
 		<>
 			<Planet
-				position={[43, 0, 250]}
+				position={[58, 0, 250]}
 				meshMaterialPath="/sun.jpeg"
 				spinSpeed={0.005}
-				size={55}
+				size={70}
 			/>
 			<Text
 				color={"white"}
-				position={[-72, 0, 250]}
-				maxWidth={120}
+				position={[-80, 20, 250]}
+				maxWidth={130}
+				font="/fonts/futura_medium.ttf"
+				lineHeight={1.2}
 				fontSize={8}
 				textAlign="left"
 			>
@@ -36,7 +38,7 @@ const Sun = () => {
 			</Text>
 			<Image
 				url="/icons/linkedin.png"
-				position={[-130, -50, 250]}
+				position={[-141, -10, 250]}
 				color={"white"}
 				scale={8}
 				onClick={handleOnClickLinkedIn}
@@ -45,37 +47,37 @@ const Sun = () => {
 			/>
 			<Image
 				url="/icons/github.png"
-				position={[-110, -50, 250]}
+				position={[-126, -10, 250]}
 				color={"white"}
-				scale={8}
+				scale={7}
 				onClick={handleOnClickGithub}
 				onPointerOver={() => setHovered(true)}
 				onPointerOut={() => setHovered(false)}
 			/>
 			<Image
 				url="/icons/substack.png"
-				position={[-90, -50, 250]}
+				position={[-111, -10, 250]}
 				color={"white"}
-				scale={8}
+				scale={6}
 				onClick={handleOnClickSubstack}
 				onPointerOver={() => setHovered(true)}
 				onPointerOut={() => setHovered(false)}
 			/>
 			<Text
-				color={"white"}
-				position={[-110, -60, 250]}
-				fontSize={6}
-				textAlign="left"
+				color={"#787878"}
+				position={[-116, -40, 250]}
+				fontSize={5}
+				font="/fonts/futura_medium.ttf"
 			>
-				Scroll to explore
+				Zoom or Scroll to explore
 			</Text>
 			<Text
-				color={"white"}
-				position={[-110, -70, 250]}
-				fontSize={6}
-				textAlign="left"
+				color={"#787878"}
+				position={[-130.5, -48, 250]}
+				fontSize={5}
+				font="/fonts/futura_medium.ttf"
 			>
-				Drag for fun
+				Drag for fun.
 			</Text>
 		</>
 	);

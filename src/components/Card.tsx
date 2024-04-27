@@ -1,5 +1,5 @@
 import { Plane, RoundedBox, Shadow, Text, useCursor } from "@react-three/drei";
-import { useFrame, useThree, Vector3 } from "@react-three/fiber";
+import { Euler, useFrame, useThree, Vector3 } from "@react-three/fiber";
 import {
 	MutableRefObject,
 	useEffect,
@@ -12,6 +12,7 @@ import * as THREE from "three";
 
 interface CardProps {
 	position: Vector3;
+	rotation?: Euler;
 	text: string;
 	ProjectComponent?: React.ComponentType<any>;
 	cardSize?: [
@@ -25,6 +26,7 @@ interface CardProps {
 }
 const Card: React.FC<CardProps> = ({
 	position,
+	rotation,
 	text,
 	ProjectComponent,
 	cardSize: size = [6, 3],
@@ -93,6 +95,7 @@ const Card: React.FC<CardProps> = ({
 			<RoundedBox
 				onClick={open}
 				position={position}
+				rotation={rotation}
 				args={[size[0], size[1], 1]}
 				radius={0.5}
 				onPointerOver={handleHover}
@@ -105,12 +108,14 @@ const Card: React.FC<CardProps> = ({
 			<RoundedBox
 				args={[size[0], size[1], 1]}
 				position={shadowPosition}
+				rotation={rotation}
 				radius={0.5}
 			>
 				<meshBasicMaterial color="grey" transparent opacity={0.7} />
 			</RoundedBox>
 			<Text
 				position={textPosition}
+				rotation={rotation}
 				fontSize={fontSize}
 				color={"black"}
 				ref={textRef}

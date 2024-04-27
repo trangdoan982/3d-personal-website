@@ -1,6 +1,6 @@
 import css from "@/styles/Home.module.css";
 import React, { useEffect, useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, Vector3 } from "@react-three/fiber";
 import { OrbitControls, Stars, PerspectiveCamera } from "@react-three/drei";
 import Earth from "@/components/planets/Earth";
 import Sun from "@/components/planets/Sun";
@@ -9,6 +9,8 @@ import Mars from "@/components/planets/Mars";
 import { ChakraProvider } from "@chakra-ui/react";
 import DynamicNav from "@/components/DynamicNav";
 import { Loader } from "@react-three/drei";
+import Button from "@/components/Button";
+import Brex from "@/components/Projects/Brex";
 
 interface ToggleOrbitControlsProps {
 	enabled: boolean;
@@ -24,7 +26,7 @@ const ToggleOrbitControls: React.FC<ToggleOrbitControlsProps> = ({
 	}, [enabled]);
 
 	return (
-		<OrbitControls zoomSpeed={0.1} enablePan={false} ref={controlsRef} />
+		<OrbitControls zoomSpeed={0.3} enablePan={false} ref={controlsRef} />
 	);
 };
 

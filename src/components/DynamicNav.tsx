@@ -4,21 +4,20 @@ import React from "react";
 import { Html } from "@react-three/drei";
 
 const DynamicNav = () => {
-	// Get access to the camera
 	const { camera } = useThree();
 	const [animating, setAnimating] = React.useState(false);
 	const easeInOut = (t: number) => {
 		return 1 - Math.pow(1 - t, 9);
 	};
 
-	// Function to handle camera movement animation
+	// Handle camera movement animation
 	const animateCamera = (targetPosition: THREE.Vector3Like) => {
-		setAnimating(true); // Set animating state to true
+		setAnimating(true);
 
-		// Animate camera movement over 2 seconds
 		const startTime = Date.now();
-		const duration = 2000; // milliseconds
+		const duration = 2000;
 		const startPosition = camera.position.clone();
+		console.log(startPosition);
 
 		const animateFrame = () => {
 			const now = Date.now();
@@ -33,10 +32,8 @@ const DynamicNav = () => {
 
 			// Check if animation is complete
 			if (progress < 1) {
-				// Continue animating
 				requestAnimationFrame(animateFrame);
 			} else {
-				// Animation complete
 				setAnimating(false);
 			}
 		};
@@ -44,10 +41,8 @@ const DynamicNav = () => {
 		animateFrame();
 	};
 
-	// Render loop to update camera movement
 	useFrame(() => {
 		if (animating) {
-			// Update camera controls during animation
 			camera.updateMatrixWorld();
 		}
 	});
@@ -55,81 +50,69 @@ const DynamicNav = () => {
 	const handleClickAbout = () => {
 		animateCamera(new THREE.Vector3(0, 0, 500));
 	};
-	// Function to handle the onClick event
 	const handleClickProject = () => {
-		// Change the camera's position
-		animateCamera(new THREE.Vector3(0, 0, 200));
+		animateCamera(new THREE.Vector3(0, 0, 124));
 	};
 
 	const handleClickEarth = () => {
-		animateCamera(new THREE.Vector3(0, 0, 90));
+		animateCamera(new THREE.Vector3(0, 0, 38));
 	};
 
 	const handleClickConnect = () => {
-		animateCamera(new THREE.Vector3(0, 0, 40));
+		animateCamera(new THREE.Vector3(0, 0, 20));
 	};
 
 	const margin = 4;
 
 	return (
-		<Html
-			style={{
-				position: "absolute",
-				top: "-50vh",
-				left: "-48vw",
-				padding: "10px",
-				display: "flex",
-				flexDirection: "column",
-				alignItems: "flex-start",
-				// backgroundColor: "black",
-			}}
-		>
-			<button
+		<>
+			<Html
 				style={{
-					fontFamily: "var(--font-nasa)",
-					margin: 4,
-					fontSize: 20,
-					marginBottom: 10,
-					color: "#4D7FFF",
+					position: "absolute",
+					top: "-48vh",
+					left: "-47vw",
+					padding: "10px",
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "flex-start",
 				}}
-				onClick={handleClickAbout}
 			>
-				TRANG DOAN{" "}
-			</button>
-			<button
+				<button
+					style={{
+						fontFamily: "var(--font-nasa)",
+						margin: 4,
+						fontSize: 20,
+						marginBottom: 10,
+						color: "#4D7FFF",
+					}}
+					onClick={handleClickAbout}
+				>
+					TRANG DOAN{" "}
+				</button>
+			</Html>
+			<Html
 				style={{
-					margin: margin,
-					color: "white",
-					fontFamily: "var(--font-inter)",
-					fontWeight: 500,
-				}}
-				onClick={handleClickProject}
-			>
-				Projects{" "}
-			</button>
-			<button
-				style={{
-					margin: margin,
-					color: "white",
+					position: "absolute",
+					top: "43vh",
+					left: "-48vw",
+					padding: "0px",
+					width: "100vw",
+					height: "7vh",
+					display: "flex",
+					flexDirection: "row",
+					justifyContent: "space-evenly",
+					backgroundColor: "black",
 					fontFamily: "var(--font-inter)",
 					fontWeight: 600,
-				}}
-				onClick={handleClickEarth}
-			>
-				Earthly pleasures
-			</button>
-			<button
-				style={{
-					margin: margin,
 					color: "white",
-					fontFamily: "var(--font-inter)",
-					fontWeight: 600,
+					fontSize: 18,
 				}}
-				onClick={handleClickConnect}
 			>
-				Connect
-			</button>
-		</Html>
+				<button onClick={handleClickProject}>Projects </button>
+				<button onClick={handleClickEarth}>Earthly pleasures</button>
+				<button onClick={handleClickConnect}>Connect</button>
+			</Html>
+		</>
 	);
 };
 
