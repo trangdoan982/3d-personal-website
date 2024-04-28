@@ -53,8 +53,8 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				position={[18, 5, 80]}
 				buttonSize={[11, 2.5]}
 				borderWidth={0.1}
-				text="Brex"
-				textXOffset={1.3}
+				text="Brex                                ➜"
+				textXOffset={5.1}
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={Brex}
 			/>
@@ -62,8 +62,8 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				position={[18, -1, 80]}
 				buttonSize={[11, 2.5]}
 				borderWidth={0.1}
-				text="Wikicredibility"
-				textXOffset={3}
+				text="Wikicredibility                  ➜"
+				textXOffset={5.1}
 				textYOffset={0.1}
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={Wikicredibility}
@@ -72,8 +72,8 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				position={[18, -7, 80]}
 				buttonSize={[11, 2.5]}
 				borderWidth={0.1}
-				text="This website"
-				textXOffset={2.7}
+				text="This website                     ➜"
+				textXOffset={5.1}
 				textYOffset={-0.1}
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={PersonalWebsite}

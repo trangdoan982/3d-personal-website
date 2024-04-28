@@ -52,29 +52,33 @@ const Earth: React.FC<EarthProps> = ({ setControlsEnabled }) => {
 				ProjectComponent={Writing}
 			/> */}
 			<Button
-				position={[4, 0, 20]}
-				text="Writing"
+				position={[6.5, 1.5, 20]}
+				text="Writing                  ➜"
 				setControlsEnabled={setControlsEnabled}
-				buttonSize={[6, 1.5]}
-				fontSize={0.5}
-				textXOffset={3}
-				textYOffset={0.1}
+				buttonSize={[5, 1]}
+				fontSize={0.4}
+				textXOffset={2}
+				textYOffset={0.15}
 				ProjectComponent={Writing}
 			/>
-			<Card
-				position={[8, 0, 20]}
-				text="Visuals"
-				cardSize={[5, 3]}
-				fontSize={0.5}
+			<Button
+				position={[6.5, -0.5, 20]}
+				text="Visuals                  ➜"
 				setControlsEnabled={setControlsEnabled}
+				buttonSize={[5, 1]}
+				fontSize={0.4}
+				textXOffset={1.9}
+				textYOffset={0.05}
 				ProjectComponent={Visuals}
 			/>
-			<Card
-				position={[8, -5, 20]}
-				text="??"
-				cardSize={[5, 3]}
-				fontSize={0.5}
+			<Button
+				position={[6.5, -2.5, 20]}
+				text="??                           ➜"
 				setControlsEnabled={setControlsEnabled}
+				buttonSize={[5, 1]}
+				fontSize={0.4}
+				textXOffset={1.8}
+				textYOffset={-0.05}
 				ProjectComponent={ConnectSub}
 			/>
 		</>

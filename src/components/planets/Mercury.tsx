@@ -6,6 +6,7 @@ import { Dispatch, SetStateAction, useRef } from "react";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import { MTLLoader } from "three/examples/jsm/Addons.js";
 import { Group } from "three";
+import Button from "../Button";
 
 const UFO = () => {
 	const objRef = useRef<Group>(null);
@@ -61,12 +62,14 @@ const Mercury: React.FC<MercuryProps> = ({ setControlsEnabled }) => {
 			>
 				Make first contact
 			</Text>
-			<Card
-				position={[-0.9, -1.1, 0]}
-				text="But how?"
-				cardSize={[4, 2]}
-				fontSize={0.5}
+			<Button
+				position={[-2, -1.1, 0]}
+				text="But How?"
 				setControlsEnabled={setControlsEnabled}
+				buttonSize={[3, 1]}
+				fontSize={0.4}
+				textXOffset={1.5}
+				textYOffset={-0.1}
 				ProjectComponent={ConnectMain}
 			/>
 		</>
