@@ -80,7 +80,7 @@ const Button: React.FC<ButtonProps> = ({
 				position={position}
 				width={size[0]}
 				height={size[1]}
-				borderRadius={0.5}
+				borderRadius={0.4}
 				borderWidth={borderWidth}
 				borderColor={"#888888"}
 				backgroundColor={backgroundColor}
@@ -90,9 +90,6 @@ const Button: React.FC<ButtonProps> = ({
 			<Text position={textPosition} fontSize={fontSize} color={"white"}>
 				{text}
 			</Text>
-			{/* <Text position={arrowPosition} fontSize={fontSize}>
-				➜
-			</Text> */}
 			{/* THE OVERLAY */}
 			{showOverlay && ProjectComponent && (
 				<ProjectComponent onClose={close} />

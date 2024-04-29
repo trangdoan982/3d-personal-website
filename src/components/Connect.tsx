@@ -1,4 +1,4 @@
-import { CloseButton } from "@chakra-ui/react";
+import { CloseButton, Grid, GridItem } from "@chakra-ui/react";
 import { Html } from "@react-three/drei";
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
@@ -112,193 +112,220 @@ const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5, ease: "easeIn" }}
 			>
-				<div style={{ color: "white", padding: "20px" }}>
-					<div style={{ fontSize: "20px" }}>{intro}</div>
-					<div>
-						<form
-							onSubmit={handleSubmit}
-							style={{
-								margin: "20px",
-								display: "flex",
-								width: "100%",
-								flexDirection: "column",
-								gap: "20px",
-							}}
-						>
-							<div className="question">
-								<label htmlFor="question">
-									* Select a question:
-								</label>
-								<div
+				<Grid
+					templateColumns="repeat(5, 1fr)"
+					gap={40}
+					textColor={"white"}
+					margin={40}
+					marginTop={-16}
+				>
+					<GridItem w="100%" />
+					<GridItem w="100%" colSpan={3}>
+						<div style={{ color: "white", padding: "20px" }}>
+							<div style={{ fontSize: "18px", marginTop: 20 }}>
+								{intro}
+							</div>
+							<div>
+								<form
+									onSubmit={handleSubmit}
 									style={{
+										margin: "20px",
 										display: "flex",
-										flexDirection: "row",
+										width: "100%",
+										flexDirection: "column",
+										gap: "20px",
 									}}
 								>
-									<select
-										id="question"
-										name="question"
-										value={formValues.question}
-										onChange={handleChange}
-										style={{
-											color: "black",
-											borderRadius: "5px",
-											width: "500px",
-										}}
-										required={true}
-									>
-										<option value="">
-											Select a question
-										</option>
-										{Object.keys(qAPairs).map(
-											(q, index) => (
-												<option key={index} value={q}>
-													{q}
+									<div className="question">
+										<label htmlFor="question">
+											* Select a question:
+										</label>
+										<div
+											style={{
+												display: "flex",
+												flexDirection: "row",
+											}}
+										>
+											<select
+												id="question"
+												name="question"
+												value={formValues.question}
+												onChange={handleChange}
+												style={{
+													color: "black",
+													borderRadius: "5px",
+													width: "500px",
+												}}
+												required={true}
+											>
+												<option value="">
+													Select a question
 												</option>
-											)
-										)}
-									</select>
+												{Object.keys(qAPairs).map(
+													(q, index) => (
+														<option
+															key={index}
+															value={q}
+														>
+															{q}
+														</option>
+													)
+												)}
+											</select>
+											<button
+												type="button"
+												onClick={handleRandomize}
+												style={{
+													backgroundColor: "yellow",
+													color: "black",
+													marginLeft: "12px",
+													borderRadius: "5px",
+													display: "flex",
+													flexDirection: "row",
+												}}
+											>
+												<img
+													src="/icons/randomize.svg"
+													width={25}
+													style={{
+														backgroundColor:
+															"white",
+														borderRadius: "5px",
+														padding: "5px",
+													}}
+												/>
+											</button>
+										</div>
+									</div>
+									<div className="answer">
+										<label htmlFor="answer">
+											* Answer:
+										</label>
+										<div>
+											<textarea
+												rows={4}
+												cols={50}
+												id="answer"
+												name="answer"
+												value={formValues.answer}
+												onChange={handleChange}
+												placeholder={
+													qAPairs[formValues.question]
+												}
+												required={true}
+												style={{
+													color: "black",
+													height: "100px",
+													width: "500px",
+													borderRadius: "5px",
+													padding: "10px",
+												}}
+											></textarea>
+										</div>
+									</div>
+									<div className="email">
+										<label htmlFor="email">
+											{" "}
+											* Your email:
+										</label>
+										<div>
+											<input
+												type="email"
+												id="email"
+												name="email"
+												value={formValues.email}
+												onChange={handleChange}
+												placeholder=""
+												required={true}
+												style={{
+													color: "black",
+													borderRadius: "5px",
+													width: "500px",
+													padding: "10px",
+												}}
+											/>
+										</div>
+									</div>
 									<button
-										type="button"
-										onClick={handleRandomize}
+										type="submit"
 										style={{
-											backgroundColor: "yellow",
+											backgroundColor: "white",
 											color: "black",
-											marginLeft: "12px",
-											borderRadius: "5px",
-											display: "flex",
-											flexDirection: "row",
+											borderRadius: "20px",
+											padding: "10px",
+											width: "100px",
 										}}
 									>
-										<img
-											src="/icons/randomize.svg"
-											width={25}
-											style={{
-												backgroundColor: "white",
-												borderRadius: "5px",
-												padding: "5px",
-											}}
-										/>
+										Submit
 									</button>
-								</div>
-							</div>
-							<div className="answer">
-								<label htmlFor="answer">* Answer:</label>
-								<div>
-									<textarea
-										rows={4}
-										cols={50}
-										id="answer"
-										name="answer"
-										value={formValues.answer}
-										onChange={handleChange}
-										placeholder={
-											qAPairs[formValues.question]
-										}
-										required={true}
-										style={{
-											color: "black",
-											height: "100px",
-											width: "500px",
-											borderRadius: "5px",
-											padding: "10px",
-										}}
-									></textarea>
-								</div>
-							</div>
-							<div className="email">
-								<label htmlFor="email"> * Your email:</label>
-								<div>
-									<input
-										type="email"
-										id="email"
-										name="email"
-										value={formValues.email}
-										onChange={handleChange}
-										placeholder=""
-										required={true}
-										style={{
-											color: "black",
-											borderRadius: "5px",
-											width: "500px",
-											padding: "10px",
-										}}
-									/>
-								</div>
-							</div>
-							<button
-								type="submit"
-								style={{
-									backgroundColor: "white",
-									color: "black",
-									borderRadius: "20px",
-									padding: "10px",
-									width: "100px",
-								}}
-							>
-								Submit
-							</button>
-						</form>
-						{showToast && <Toast />}
-						<div style={{ margin: "50px 20px" }}>
-							<p>
-								You can also <br />{" "}
-								<ul style={{ listStyle: "inherit" }}>
-									<li>
-										shoot me an email at
-										<span style={{ fontFamily: "courier" }}>
-											{" "}
-											doanthithuytrang982@gmail.com{" "}
-										</span>{" "}
-									</li>
-									<li>
-										check out my{" "}
-										<u>
-											<a
-												href="https://www.linkedin.com/in/trang-doan-m23/"
-												target="_blank"
-											>
-												LinkedIn,
-											</a>
-										</u>{" "}
-										<u>
-											<a
-												href="https://www.instagram.com/gnartnaod89/"
-												target="_blank"
-											>
-												Instagram
-											</a>
-										</u>
-										, or{" "}
-										<u>
-											<a
-												href="https://github.com/trangdoan982"
-												target="_blank"
-											>
-												{" "}
-												Github{" "}
-											</a>
-										</u>
-									</li>
+								</form>
+								{showToast && <Toast />}
+								<div style={{ margin: "50px 20px" }}>
+									<p>
+										You can also <br />{" "}
+										<ul style={{ listStyle: "inherit" }}>
+											<li>
+												shoot me an email at
+												<span
+													style={{
+														fontFamily: "courier",
+													}}
+												>
+													{" "}
+													doanthithuytrang982@gmail.com{" "}
+												</span>{" "}
+											</li>
+											<li>
+												check out my{" "}
+												<u>
+													<a
+														href="https://www.linkedin.com/in/trang-doan-m23/"
+														target="_blank"
+													>
+														LinkedIn,
+													</a>
+												</u>{" "}
+												<u>
+													<a
+														href="https://www.instagram.com/gnartnaod89/"
+														target="_blank"
+													>
+														Instagram
+													</a>
+												</u>
+												, or{" "}
+												<u>
+													<a
+														href="https://github.com/trangdoan982"
+														target="_blank"
+													>
+														{" "}
+														Github{" "}
+													</a>
+												</u>
+											</li>
 
-									<li>
-										{" "}
-										follow my Substack
-										<iframe
-											src="https://trangdoan.substack.com/embed"
-											width="550"
-											height="200"
-											style={{
-												border: "1px solid #EEE",
-												background: "white",
-											}}
-										></iframe>
-									</li>
-								</ul>
-							</p>
+											<li>
+												{" "}
+												follow my Substack
+												<iframe
+													src="https://trangdoan.substack.com/embed"
+													width="550"
+													height="200"
+													style={{
+														border: "1px solid #EEE",
+														background: "white",
+													}}
+												></iframe>
+											</li>
+										</ul>
+									</p>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
+					</GridItem>
+					<GridItem w="100%" />
+				</Grid>
 			</motion.div>
 		</Html>
 	);

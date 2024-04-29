@@ -43,8 +43,15 @@ interface BrexProps {
 const Brex: React.FC<BrexProps> = ({ onClose }) => {
 	const content = (
 		<div>
-			<br />
-			<b>Growth team</b> <br />
+			<div
+				style={{
+					fontFamily: "var(--font-futura)",
+					fontWeight: 400,
+					fontSize: 18,
+				}}
+			>
+				Growth team
+			</div>
 			<ul
 				style={{
 					listStyle: "inherit",
@@ -69,9 +76,17 @@ const Brex: React.FC<BrexProps> = ({ onClose }) => {
 					those high-quality leads, generating higher signup and
 					retention rates
 				</li>
-			</ul>{" "}
+			</ul>
 			<br />
-			<b>Data Platform team</b> <br />
+			<div
+				style={{
+					fontFamily: "var(--font-futura)",
+					fontWeight: 400,
+					fontSize: 18,
+				}}
+			>
+				Data Platform team
+			</div>
 			<ul style={{ listStyle: "inherit" }}>
 				<li>
 					Revamped Snowflake access control system, reducing time to
@@ -99,7 +114,6 @@ const Brex: React.FC<BrexProps> = ({ onClose }) => {
 			role="Fullstack Software Engineer"
 			stack="Typescript, Kotlin, NextJS, GraphQL, gRPC, postgreSQL"
 			content={content}
-			// OtherContent={OtherContent}
 		/>
 	);
 };

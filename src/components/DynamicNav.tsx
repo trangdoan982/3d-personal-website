@@ -17,7 +17,6 @@ const DynamicNav = () => {
 		const startTime = Date.now();
 		const duration = 2000;
 		const startPosition = camera.position.clone();
-		console.log(startPosition);
 
 		const animateFrame = () => {
 			const now = Date.now();
@@ -53,16 +52,17 @@ const DynamicNav = () => {
 	const handleClickProject = () => {
 		animateCamera(new THREE.Vector3(0, 0, 124));
 	};
-
 	const handleClickEarth = () => {
 		animateCamera(new THREE.Vector3(0, 0, 38));
 	};
-
 	const handleClickConnect = () => {
 		animateCamera(new THREE.Vector3(0, 0, 20));
 	};
-
-	const margin = 4;
+	const handleRealign = () => {
+		const startPosition = camera.position.clone();
+		const endPosition = new THREE.Vector3(0, 0, Math.abs(startPosition.z));
+		animateCamera(endPosition);
+	};
 
 	return (
 		<>
@@ -81,7 +81,7 @@ const DynamicNav = () => {
 					style={{
 						fontFamily: "var(--font-nasa)",
 						margin: 4,
-						fontSize: 20,
+						fontSize: 24,
 						marginBottom: 10,
 						color: "#4D7FFF",
 					}}
@@ -101,7 +101,6 @@ const DynamicNav = () => {
 					display: "flex",
 					flexDirection: "row",
 					justifyContent: "space-evenly",
-					backgroundImage: "/starry_background.png",
 					fontFamily: "var(--font-inter)",
 					fontWeight: 600,
 					color: "white",
@@ -111,6 +110,36 @@ const DynamicNav = () => {
 				<button onClick={handleClickProject}>Projects </button>
 				<button onClick={handleClickEarth}>Earthly pleasures</button>
 				<button onClick={handleClickConnect}>Connect</button>
+			</Html>
+			<Html
+				style={{
+					position: "absolute",
+					top: "45vh",
+					right: "-48vw",
+					padding: "0px",
+					height: "7vh",
+					display: "flex",
+					flexDirection: "row",
+					justifyContent: "space-evenly",
+					fontFamily: "var(--font-inter)",
+					fontWeight: 600,
+					color: "#BFBFBF",
+					fontSize: 16,
+				}}
+			>
+				<button
+					onClick={handleRealign}
+					style={{
+						display: "flex",
+						flexDirection: "row",
+						gap: 4,
+						alignItems: "center",
+					}}
+				>
+					{" "}
+					<img src="/icons/compass.svg" width={30} />
+					Realign
+				</button>
 			</Html>
 		</>
 	);

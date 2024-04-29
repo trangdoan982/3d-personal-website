@@ -65,11 +65,11 @@ const Sun = () => {
 			/>
 			<Text
 				color={"#787878"}
-				position={[-116, -40, 250]}
+				position={[-118, -40, 250]}
 				fontSize={5}
 				font="/fonts/futura_medium.ttf"
 			>
-				Zoom or Scroll to explore
+				* Zoom or Scroll to explore
 			</Text>
 			<Text
 				color={"#787878"}

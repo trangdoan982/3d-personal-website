@@ -57,8 +57,8 @@ interface WritingProps {
 }
 const Writing: React.FC<WritingProps> = ({ onClose }) => {
 	const intro = (
-		<div>
-			{" "}
+		<div style={{ margin: 40 }}>
+			{"         "}
 			All of my writings could be found on{" "}
 			<u>
 				{" "}

@@ -13,7 +13,7 @@ interface EarthProps {
 const Earth: React.FC<EarthProps> = ({ setControlsEnabled }) => {
 	const intro = (
 		<p>
-			?? What project will we collaborate together ?? <br />
+			?? What project can we collaborate on ?? <br />
 			There's nothing I love more than sharing the joy of a creative
 			project with friends <br />
 			No matter what it is or could be, leave me message

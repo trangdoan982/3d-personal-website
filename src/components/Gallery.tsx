@@ -15,7 +15,7 @@ const GalleryItem: React.FC<GalleryItem> = ({ title, imageUrl, href }) => {
 			style={{
 				display: "inline-block",
 				width: "50%",
-				padding: "30px",
+				padding: "40px",
 				boxSizing: "border-box",
 				textDecoration: "none",
 				color: "inherit",
@@ -28,7 +28,6 @@ const GalleryItem: React.FC<GalleryItem> = ({ title, imageUrl, href }) => {
 					paddingBottom: "100%",
 					overflow: "hidden",
 					borderRadius: "5px",
-					// boxShadow: "-5px 5px 5px rgba(206, 200, 203, 0.6)",
 				}}
 			>
 				<img
@@ -65,7 +64,7 @@ const Gallery: React.FC<GalleryProps> = ({ onClose, galleryData, intro }) => {
 				left: "-50vw",
 				overflowY: "auto",
 				borderRadius: "30px",
-				margin: "10px",
+				margin: "40px",
 				padding: "50px",
 				color: "white",
 				backgroundImage: 'url("/starry_background.png")',
@@ -74,6 +73,7 @@ const Gallery: React.FC<GalleryProps> = ({ onClose, galleryData, intro }) => {
 			<CloseButton
 				color="white"
 				onClick={onClose}
+				fontSize={24}
 				style={{ margin: "10px", position: "fixed" }}
 			/>
 			<motion.div

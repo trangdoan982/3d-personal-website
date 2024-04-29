@@ -51,12 +51,21 @@ const nasalization = localFont({
 	],
 	variable: "--font-nasa",
 });
+
+const wingdings = localFont({
+	src: [
+		{
+			path: "../public/fonts/wingding.ttf",
+		},
+	],
+	variable: "--font-wingding",
+});
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<main
-			className={`${episcene.variable} ${futura.variable} ${nasalization.variable} ${inter.className}`}
+			className={`${episcene.variable} ${futura.variable} ${nasalization.variable} ${wingdings.variable} ${inter.className}`}
 		>
 			<Component {...pageProps} />
 		</main>
