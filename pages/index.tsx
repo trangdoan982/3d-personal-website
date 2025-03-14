@@ -9,8 +9,6 @@ import Mars from "@/components/planets/Mars";
 import { ChakraProvider } from "@chakra-ui/react";
 import DynamicNav from "@/components/DynamicNav";
 import { Loader } from "@react-three/drei";
-import Button from "@/components/Button";
-import Brex from "@/components/Projects/Brex";
 
 interface ToggleOrbitControlsProps {
 	enabled: boolean;

@@ -1,10 +1,7 @@
-import { Box, Image } from "@chakra-ui/react";
 import Projects from "../projects";
+import { ProjectProps } from "./Wikicredibility";
 
-interface PersonalWebsiteProps {
-	onClose: () => void;
-}
-const PersonalWebsite: React.FC<PersonalWebsiteProps> = ({ onClose }) => {
+const PersonalWebsite: React.FC<ProjectProps> = ({ onClose }) => {
 	const content = (
 		<div>
 			This website is made with joy! <br />

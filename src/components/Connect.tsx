@@ -176,8 +176,6 @@ const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 												type="button"
 												onClick={handleRandomize}
 												style={{
-													backgroundColor: "yellow",
-													color: "black",
 													marginLeft: "12px",
 													borderRadius: "5px",
 													display: "flex",
@@ -189,7 +187,7 @@ const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 													width={25}
 													style={{
 														backgroundColor:
-															"white",
+															"orange",
 														borderRadius: "5px",
 														padding: "5px",
 													}}
@@ -307,7 +305,16 @@ const Connect: React.FC<ConnectProps> = ({ onClose, intro }) => {
 
 											<li>
 												{" "}
-												follow my Substack
+												follow my{" "}
+												<a
+													href="https://trangdoan.substack.com/"
+													target="_blank"
+													style={{
+														textDecoration: "underline",
+													}}
+												>
+													Substack
+												</a>
 												<iframe
 													src="https://trangdoan.substack.com/embed"
 													width="550"

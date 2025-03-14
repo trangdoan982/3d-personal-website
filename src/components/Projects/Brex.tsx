@@ -1,5 +1,6 @@
 import { Box, Image } from "@chakra-ui/react";
 import Projects from "../projects";
+import { ProjectProps } from "./Wikicredibility";
 
 const OtherContent = () => {
 	const imagePath =
@@ -36,11 +37,7 @@ const OtherContent = () => {
 	);
 };
 
-interface BrexProps {
-	onClose: () => void;
-}
-
-const Brex: React.FC<BrexProps> = ({ onClose }) => {
+const Brex: React.FC<ProjectProps> = ({ onClose }) => {
 	const content = (
 		<div>
 			<div

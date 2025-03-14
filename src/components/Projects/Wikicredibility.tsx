@@ -1,10 +1,10 @@
 import { Box, Image } from "@chakra-ui/react";
 import Projects from "../projects";
 
-interface WikicredibilityProps {
+export interface ProjectProps {
 	onClose: () => void;
 }
-const Wikicredibility: React.FC<WikicredibilityProps> = ({ onClose }) => {
+const Wikicredibility: React.FC<ProjectProps> = ({ onClose }) => {
 	const content = (
 		<div>
 			Wikipedia is always among top 10 most visited websites. Yet, most
