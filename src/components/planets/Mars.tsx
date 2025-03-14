@@ -147,7 +147,7 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				borderWidth={0.1}
 				textXOffset={5.1}
 				textYOffset={0.1}
-				text="Dance film"
+				text="Dance film           ➜"
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={DanceFilmWrapper}
 				/>
@@ -157,7 +157,7 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				borderWidth={0.1}
 				textXOffset={5.1}
 				textYOffset={-0.1}
-				text="SciOS"
+				text="SciOS                 ➜"
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={SciOSWrapper}
 				/>
@@ -166,7 +166,7 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				buttonSize={[11, 2.5]}
 				borderWidth={0.1}
 				textXOffset={5.1}
-				text="Personal website"
+				text="Personal website       ➜"
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={PersonalWebsiteWrapper}
 			/>

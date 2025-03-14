@@ -21,6 +21,12 @@ const galleryData: GalleryItem[] = [
 		href: "https://www.instagram.com/p/C-QZJ-4ODW_/?img_index=1",
 	},
 	{
+		id: 3.1,
+		title: "STUDIES (Poster Design)",
+		imageUrl: "/poster.jpg",
+		href: "https://trangdoan.substack.com/i/150114357/graphic-design",
+	},
+	{
 		id: 4,
 		title: "COCKROACH HUNTER DOCUMENTARY (Producer assistant with Rice Production)",
 		imageUrl: "/cockroachhunter.png",
