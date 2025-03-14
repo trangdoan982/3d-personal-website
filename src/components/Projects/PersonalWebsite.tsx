@@ -45,7 +45,7 @@ const PersonalWebsite: React.FC<ProjectProps> = ({ onClose }) => {
 	return (
 		<Projects
 			onClose={onClose}
-			imagePath={"https://i.imgur.com/dwcoI8A.gif"}
+			imagePath={"/personalWebsite.gif"}
 			projectTitle="This Website"
 			time="February 2024 - April 2024"
 			link="https://github.com/trangdoan982/3d-personal-website"

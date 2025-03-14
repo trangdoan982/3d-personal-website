@@ -9,34 +9,29 @@ import Button from "../Button";
 
 interface EarthProps {
 	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
+	initialShowVisuals?: boolean;
+	initialShowWriting?: boolean;
 }
-const Earth: React.FC<EarthProps> = ({ setControlsEnabled }) => {
+
+const Earth: React.FC<EarthProps> = ({ 
+	setControlsEnabled, 
+	initialShowVisuals = false, 
+	initialShowWriting = false 
+}) => {
 	// State to track if Visuals component should be shown
-	const [showVisuals, setShowVisuals] = useState(false);
-	const [showWriting, setShowWriting] = useState(false);
+	const [showVisuals, setShowVisuals] = useState(initialShowVisuals);
+	const [showWriting, setShowWriting] = useState(initialShowWriting);
 
-	// Check for URL hash on mount and when it changes
+	// Apply initial state from props
 	useEffect(() => {
-		const checkHash = () => {
-			const hash = window.location.hash.toLowerCase();
-			if (hash === "#visuals") {
-				setShowVisuals(true);
-				setControlsEnabled(false);
-			} else if (hash === "#writing") {
-				setShowWriting(true);
-				setControlsEnabled(false);
-			}
-		};
-
-		// Check on initial mount
-		checkHash();
-
-		// Listen for hash changes
-		window.addEventListener("hashchange", checkHash);
-		return () => {
-			window.removeEventListener("hashchange", checkHash);
-		};
-	}, [setControlsEnabled]);
+		if (initialShowVisuals) {
+			setShowVisuals(true);
+			setControlsEnabled(false);
+		} else if (initialShowWriting) {
+			setShowWriting(true);
+			setControlsEnabled(false);
+		}
+	}, [initialShowVisuals, initialShowWriting, setControlsEnabled]);
 
 	const intro = (
 		<p>
@@ -152,9 +147,9 @@ const Earth: React.FC<EarthProps> = ({ setControlsEnabled }) => {
 				ProjectComponent={ConnectSub}
 			/>
 
-			{/* We don't need these anymore since we're using the ProjectComponent prop */}
-			{/* {showVisuals && <Visuals onClose={handleVisualsClose} />} */}
-			{/* {showWriting && <Writing onClose={handleWritingClose} />} */}
+			{/* Render components directly if they should be shown */}
+			{showVisuals && <Visuals onClose={handleVisualsClose} />}
+			{showWriting && <Writing onClose={handleWritingClose} />}
 		</>
 	);
 };

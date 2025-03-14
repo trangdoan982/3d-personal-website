@@ -11,44 +11,17 @@ import Wikicredibility from "../Projects/Wikicredibility";
 
 interface MarsProps {
 	setControlsEnabled: Dispatch<SetStateAction<boolean>>;
+	initialProject?: string | null;
 }
-const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
+
+const Mars: React.FC<MarsProps> = ({ setControlsEnabled, initialProject = null }) => {
 	// State to track which project to show
-	const [activeProject, setActiveProject] = useState<string | null>(null);
-
-	// Check for URL hash on mount and when it changes
+	const [activeProject, setActiveProject] = useState<string | null>(initialProject);
+	
+	// Update active project if initialProject prop changes
 	useEffect(() => {
-		const checkHash = () => {
-			const hash = window.location.hash.toLowerCase();
-			
-			// Check for specific project anchors
-			if (hash === "#projects-brex") {
-				setActiveProject("brex");
-				setControlsEnabled(false);
-			} else if (hash === "#projects-personal") {
-				setActiveProject("personal");
-				setControlsEnabled(false);
-			} else if (hash === "#projects-dance") {
-				setActiveProject("dance");
-				setControlsEnabled(false);
-			} else if (hash === "#projects-scios") {
-				setActiveProject("scios");
-				setControlsEnabled(false);
-			} else if (hash === "#projects-wiki") {
-				setActiveProject("wiki");
-				setControlsEnabled(false);
-			}
-		};
-
-		// Check on initial mount
-		checkHash();
-
-		// Listen for hash changes
-		window.addEventListener("hashchange", checkHash);
-		return () => {
-			window.removeEventListener("hashchange", checkHash);
-		};
-	}, [setControlsEnabled]);
+		setActiveProject(initialProject);
+	}, [initialProject]);
 
 	// Handle project closing
 	const handleCloseProject = () => {
@@ -73,40 +46,32 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 		onClose: () => void;
 	}
 
-	// const BrexWrapper: React.FC<ProjectWrapperProps> = ({ onClose }) => {
-	// 	useEffect(() => {
-	// 		window.history.pushState(null, "", "#projects-brex");
-	// 	}, []);
-	// 	return <Brex onClose={onClose} />;
-	// };
-
 	const PersonalWebsiteWrapper: React.FC<ProjectWrapperProps> = ({ onClose }) => {
 		useEffect(() => {
-			window.history.pushState(null, "", "#projects-personal");
+			if (!window.location.hash.includes("projects-personal")) {
+				window.history.pushState(null, "", "#projects-personal");
+			}
 		}, []);
 		return <PersonalWebsite onClose={onClose} />;
 	};
 
 	const DanceFilmWrapper: React.FC<ProjectWrapperProps> = ({ onClose }) => {
 		useEffect(() => {
-			window.history.pushState(null, "", "#projects-dance");
+			if (!window.location.hash.includes("projects-dance")) {
+				window.history.pushState(null, "", "#projects-dance");
+			}
 		}, []);
 		return <DanceFilm onClose={onClose} />;
 	};
 
 	const SciOSWrapper: React.FC<ProjectWrapperProps> = ({ onClose }) => {
 		useEffect(() => {
-			window.history.pushState(null, "", "#projects-scios");
+			if (!window.location.hash.includes("projects-scios")) {
+				window.history.pushState(null, "", "#projects-scios");
+			}
 		}, []);
 		return <SciOS onClose={onClose} />;
 	};
-
-	// const WikiWrapper: React.FC<ProjectWrapperProps> = ({ onClose }) => {
-	// 	useEffect(() => {
-	// 		window.history.pushState(null, "", "#projects-wiki");
-	// 	}, []);
-	// 	return <Wikicredibility onClose={onClose} />;
-	// };
 
 	return (
 		<>
@@ -131,16 +96,6 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				My projects are out of this world. Here are some
 				selected work. You can view my resume here.
 			</Text>
-			{/* <Button
-				position={[25, 8, 80]}
-				text="Brex"
-				setControlsEnabled={setControlsEnabled}
-				ProjectComponent={BrexWrapper}
-				buttonSize={[8, 5]}
-				fontSize={1}
-				textXOffset={3.5}
-				textYOffset={2}
-			/> */}
 			<Button
 				position={[18, 5, 80]}
 				buttonSize={[11, 2.5]}
@@ -170,15 +125,11 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled }) => {
 				setControlsEnabled={setControlsEnabled}
 				ProjectComponent={PersonalWebsiteWrapper}
 			/>
-			
-			
 
 			{/* Conditionally render projects based on activeProject state */}
-			{activeProject === "brex" && <Brex onClose={handleCloseProject} />}
 			{activeProject === "personal" && <PersonalWebsite onClose={handleCloseProject} />}
 			{activeProject === "dance" && <DanceFilm onClose={handleCloseProject} />}
 			{activeProject === "scios" && <SciOS onClose={handleCloseProject} />}
-			{/* {activeProject === "wiki" && <Wikicredibility onClose={handleCloseProject} />} */}
 		</>
 	);
 };

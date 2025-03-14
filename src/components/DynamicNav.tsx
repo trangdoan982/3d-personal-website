@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
-import React, { useEffect } from "react";
+import React from "react";
 import { Html } from "@react-three/drei";
 
 const DynamicNav = () => {
@@ -45,43 +45,6 @@ const DynamicNav = () => {
 			camera.updateMatrixWorld();
 		}
 	});
-
-	// Handle URL hash navigation
-	useEffect(() => {
-		// Check if there's a hash in the URL on initial load
-		const hash = window.location.hash.toLowerCase();
-		
-		if (hash === "#projects") {
-			handleClickProject();
-		} else if (hash === "#visuals") {
-			handleClickEarth();
-			// We'll need to trigger the Visuals component to open
-			// This will be handled separately in the Earth component
-		} else if (hash === "#connect") {
-			handleClickConnect();
-		} else if (hash === "#about") {
-			handleClickAbout();
-		}
-
-		// Add listener for hash changes
-		const handleHashChange = () => {
-			const newHash = window.location.hash.toLowerCase();
-			if (newHash === "#projects") {
-				handleClickProject();
-			} else if (newHash === "#visuals") {
-				handleClickEarth();
-			} else if (newHash === "#connect") {
-				handleClickConnect();
-			} else if (newHash === "#about") {
-				handleClickAbout();
-			}
-		};
-
-		window.addEventListener("hashchange", handleHashChange);
-		return () => {
-			window.removeEventListener("hashchange", handleHashChange);
-		};
-	}, []);
 
 	const handleClickAbout = () => {
 		window.history.pushState(null, "", "#about");
