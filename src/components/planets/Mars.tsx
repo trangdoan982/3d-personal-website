@@ -41,38 +41,6 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled, initialProject = null }
 	const [hovered, setHovered] = useState(false);
 	useCursor(hovered);
 
-	// Create project wrapper components that update the URL
-	interface ProjectWrapperProps {
-		onClose: () => void;
-	}
-
-	const PersonalWebsiteWrapper: React.FC<ProjectWrapperProps> = ({ onClose }) => {
-		useEffect(() => {
-			if (!window.location.hash.includes("projects-personal")) {
-				window.history.pushState(null, "", "#projects-personal");
-			}
-		}, []);
-		return <PersonalWebsite onClose={onClose} />;
-	};
-
-	const DanceFilmWrapper: React.FC<ProjectWrapperProps> = ({ onClose }) => {
-		useEffect(() => {
-			if (!window.location.hash.includes("projects-dance")) {
-				window.history.pushState(null, "", "#projects-dance");
-			}
-		}, []);
-		return <DanceFilm onClose={onClose} />;
-	};
-
-	const SciOSWrapper: React.FC<ProjectWrapperProps> = ({ onClose }) => {
-		useEffect(() => {
-			if (!window.location.hash.includes("projects-scios")) {
-				window.history.pushState(null, "", "#projects-scios");
-			}
-		}, []);
-		return <SciOS onClose={onClose} />;
-	};
-
 	return (
 		<>
 			<Planet
@@ -104,7 +72,7 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled, initialProject = null }
 				textYOffset={0.1}
 				text="Dance film           ➜"
 				setControlsEnabled={setControlsEnabled}
-				ProjectComponent={DanceFilmWrapper}
+				ProjectComponent={DanceFilm}
 				/>
 			<Button
 				position={[18, -1, 80]}
@@ -114,7 +82,7 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled, initialProject = null }
 				textYOffset={-0.1}
 				text="SciOS                 ➜"
 				setControlsEnabled={setControlsEnabled}
-				ProjectComponent={SciOSWrapper}
+				ProjectComponent={SciOS}
 				/>
 			<Button
 				position={[18, -7, 80]}
@@ -123,7 +91,7 @@ const Mars: React.FC<MarsProps> = ({ setControlsEnabled, initialProject = null }
 				textXOffset={5.1}
 				text="Personal website       ➜"
 				setControlsEnabled={setControlsEnabled}
-				ProjectComponent={PersonalWebsiteWrapper}
+				ProjectComponent={PersonalWebsite}
 			/>
 
 			{/* Conditionally render projects based on activeProject state */}
